@@ -4,8 +4,8 @@ import { Button } from './'
 export default ({ showMessage }) => {
   return (
     <>
-      <h1>Me contacte aí</h1>
-      <Button onClick={() => showMessage()}>Mostrar mensagem</Button>
+      <h1>Contact me!</h1>
+      <Button onClick={() => showMessage()}>Show message</Button>
     </>
   )
 }

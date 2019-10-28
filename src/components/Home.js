@@ -6,7 +6,7 @@ export default ({ fields, onChangeField, onSubmit }) => {
     <div>
       HOME
       <TextField
-        label="Nome"
+        label="Name"
         name="firstName"
         value={fields.firstName}
         onChange={onChangeField}
@@ -19,12 +19,12 @@ export default ({ fields, onChangeField, onSubmit }) => {
         }
       /> */}
       <TextField
-        label="Idade"
+        label="Age"
         name="age"
         value={fields.age}
         onChange={onChangeField}
       />
-      <Button onClick={() => onSubmit()}>Salvar</Button>
+      <Button onClick={() => onSubmit()}>Save</Button>
     </div>
   )
 }
