@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import * as requestsApi from '../api/requests'
 
 export default () => {
-  const url = 'http://api.github.com/users'
-
   const [list, setList] = useState([])
 
   // O useEffect garante que será chamado pelo menos uma vez o que estiver
