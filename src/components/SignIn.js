@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(/images/dogo.jpg)',
+    backgroundImage: 'url(/images/dogo-barking.gif)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
