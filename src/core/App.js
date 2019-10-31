@@ -11,8 +11,12 @@ const AppWrapper = styled.div`
 export default () => {
   return (
     <AppWrapper>
-      <Menu />
-      <Router isAuthenticated={true} />
+      <div>
+        <Menu />
+      </div>
+      <div>
+        <Router isAuthenticated={true} />
+      </div>
     </AppWrapper>
   )
 }

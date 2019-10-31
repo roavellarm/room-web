@@ -46,10 +46,6 @@ export default function ButtonAppBar() {
             <StyledLink to="/">Room</StyledLink>
           </Typography>
 
-          <StyledLink to="/sign-up">
-            <Button color="inherit">Sign-up</Button>
-          </StyledLink>
-
           <StyledLink to="/room">
             <Button color="inherit">Room</Button>
           </StyledLink>
