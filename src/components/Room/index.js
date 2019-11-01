@@ -1,33 +1,3 @@
-// import React from 'react'
-// import Paper from './Paper'
-// import Meeting from './Meeting'
-// import Meeting2 from './Meeting2'
-// import Meeting3 from './Meeting3'
-
-// // var constraints = { video: true }
-
-// // function successCallback(stream) {
-// //   var video = document.querySelector('video')
-// //   video.src = window.URL.createObjectURL(stream)
-// // }
-
-// // function errorCallback(error) {
-// //   console.log('navigator.getUserMedia error: ', error)
-// // }
-
-// // navigator.getUserMedia(constraints, successCallback, errorCallback)
-
-// export default () => {
-//   return (
-//     <div>
-//       <Paper />
-//       <Meeting />
-//       <Meeting2 />
-//       <Meeting3 />
-//     </div>
-//   )
-// }
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
@@ -42,15 +12,12 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Skeleton from '@material-ui/lab/Skeleton'
 import Button from '../template/Button'
 import Grid from '@material-ui/core/Grid'
+import Meeting from './Meeting'
+import Meeting2 from './Meeting2'
+import Meeting3 from './Meeting3'
+import Paper from './Paper'
 
 const useStyles = makeStyles(theme => ({
-  // root: {
-  //   display: 'flex',
-  //   flexWrap: 'wrap',
-  //   justifyContent: 'space-around',
-  //   overflow: 'hidden',
-  //   backgroundColor: theme.palette.background.paper,
-  // },
   bigAvatar: {
     margin: 10,
     width: 60,
@@ -61,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2),
   },
   media: {
-    height: 190,
+    // height: 190,
   },
   root: {
     flexGrow: 1,
@@ -164,6 +131,10 @@ export default function Room() {
 
   return (
     <div className={classes.root}>
+      <Meeting />
+      <Meeting2 />
+      <Meeting3 />
+      <Paper />
       <Grid container spacing={2}>
         <Grid item xs>
           <Media loading />
