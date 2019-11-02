@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
+import { withRouter } from 'react-router-dom'
 import SignInComponent from '../components/SignIn'
 // import * as authApi from '../api/auth'
 import { signIn } from '../api/auth'
 import { useStore } from '../core/store'
-import { withRouter } from 'react-router-dom'
 
-const SignIn = ({ history }) => {
+export default withRouter(({ history }) => {
   const { setStore } = useStore()
 
   const [fields, setFields] = useState({ email: '', password: '' })
@@ -13,10 +13,14 @@ const SignIn = ({ history }) => {
     setFields({ ...fields, [e.target.name]: e.target.value })
   }
 
-  const onSignIn = async () => {
+  const onKeyDown = ({ keyCode }) => {
+    if (keyCode === 13) return onSubmit()
+  }
+
+  const onSubmit = async () => {
     try {
       const response = await signIn(fields)
-      if ((response.status = 200)) {
+      if (response.status === 200) {
         setStore({ isAuthenticated: true })
         // limpar os dados do user depois
         setFields({ email: '', password: '' })
@@ -34,9 +38,8 @@ const SignIn = ({ history }) => {
     <SignInComponent
       fields={fields}
       onChangeField={onChangeField}
-      onSignIn={onSignIn}
+      onSubmit={onSubmit}
+      onKeyDown={onKeyDown}
     />
   )
-}
-
-export default withRouter(SignIn)
+})

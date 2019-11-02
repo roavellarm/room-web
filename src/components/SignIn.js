@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function SignIn({ onChangeField, onSignIn, fields }) {
+export default function SignIn({ onChangeField, onSubmit, fields }) {
   const classes = useStyles()
 
   return (
@@ -85,7 +85,7 @@ export default function SignIn({ onChangeField, onSignIn, fields }) {
               value={fields.email}
               onKeyDown={({ keyCode }) => {
                 if (keyCode === 13) {
-                  onSignIn()
+                  onSubmit()
                 }
               }}
             />
@@ -103,7 +103,7 @@ export default function SignIn({ onChangeField, onSignIn, fields }) {
               value={fields.password}
               onKeyDown={({ keyCode }) => {
                 if (keyCode === 13) {
-                  onSignIn()
+                  onSubmit()
                 }
               }}
             />
@@ -117,7 +117,7 @@ export default function SignIn({ onChangeField, onSignIn, fields }) {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={() => onSignIn()}
+              onClick={() => onSubmit()}
             >
               Sign In
             </Button>

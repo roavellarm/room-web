@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function SignUp() {
+export default function SignUp({ fields, onChangeField, onSubmit, onKeyDown }) {
   const classes = useStyles()
 
   return (
@@ -64,18 +64,21 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <div className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
-                name="firstName"
+                name="first_name"
                 variant="outlined"
                 required
                 fullWidth
                 id="firstName"
                 label="First Name"
                 autoFocus
+                onChange={onChangeField}
+                value={fields.first_name}
+                onKeyDown={onKeyDown}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -85,8 +88,11 @@ export default function SignUp() {
                 fullWidth
                 id="lastName"
                 label="Last Name"
-                name="lastName"
+                name="last_name"
                 autoComplete="lname"
+                onChange={onChangeField}
+                value={fields.last_name}
+                onKeyDown={onKeyDown}
               />
             </Grid>
             <Grid item xs={12}>
@@ -98,6 +104,9 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={onChangeField}
+                value={fields.email}
+                onKeyDown={onKeyDown}
               />
             </Grid>
             <Grid item xs={12}>
@@ -109,7 +118,23 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                onChange={onChangeField}
+                value={fields.password}
+                onKeyDown={onKeyDown}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="passwordConfirmation"
+                label="Password Confirmation"
+                type="password"
+                id="passwordConfirmation"
+                onChange={onChangeField}
+                value={fields.passwordConfirmation}
+                onKeyDown={onKeyDown}
               />
             </Grid>
             {/* <Grid item xs={12}>
@@ -125,6 +150,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={() => onSubmit()}
           >
             Sign Up
           </Button>
@@ -135,7 +161,7 @@ export default function SignUp() {
               </Link>
             </Grid>
           </Grid>
-        </form>
+        </div>
       </div>
       <Box mt={5}>
         <Copyright />
