@@ -65,11 +65,11 @@ export default function Menu({ isAuthenticated }) {
           {!isAuthenticated && (
             <>
               <StyledLink to="/sign-in">
-                <Button color="inherit">Sign-in</Button>
+                <Button color="inherit">Sign in</Button>
               </StyledLink>
 
               <StyledLink to="/sign-up">
-                <Button color="inherit">Sign-up</Button>
+                <Button color="inherit">Sign up</Button>
               </StyledLink>
             </>
           )}

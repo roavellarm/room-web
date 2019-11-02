@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 // ClassComponent
 // class Meeting3b extends Component {
@@ -35,7 +35,9 @@ import React, { Component, useState, useEffect } from 'react'
 // }
 
 // Function component
-function Meeting3() {
+
+// export default Meeting3b
+export default function Meeting3() {
   const [state, setState] = useState({ name: '' })
 
   // useEffect(() => {
@@ -56,6 +58,3 @@ function Meeting3() {
     </div>
   )
 }
-
-// export default Meeting3b
-export default Meeting3

@@ -11,10 +11,10 @@ import {
 } from '../containers'
 
 // Router pode conhecer somente o container,
-// nem todo conteiner vai ter um component dentro
+// nem todo container vai ter um component dentro
 export default ({ isAuthenticated }) => {
   if (isAuthenticated) {
-    // Put here private routes
+    // Private routes
     return (
       <Switch>
         <Route exact path="/" component={props => <Home {...props} />} />
@@ -24,7 +24,7 @@ export default ({ isAuthenticated }) => {
       </Switch>
     )
   }
-  // Put here public routes
+  // Public routes
   return (
     <Switch>
       <Route exact path="/" component={props => <Home {...props} />} />
