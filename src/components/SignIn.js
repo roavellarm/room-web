@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function SignIn() {
+export default function SignIn({ onChangeField, onSignIn, fields }) {
   const classes = useStyles()
 
   return (
@@ -70,7 +70,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <div className={classes.form} noValidate>
             <TextField
               variant="outlined"
               margin="normal"
@@ -81,6 +81,13 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={onChangeField}
+              value={fields.email}
+              onKeyDown={({ keyCode }) => {
+                if (keyCode === 13) {
+                  onSignIn()
+                }
+              }}
             />
             <TextField
               variant="outlined"
@@ -92,6 +99,13 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={onChangeField}
+              value={fields.password}
+              onKeyDown={({ keyCode }) => {
+                if (keyCode === 13) {
+                  onSignIn()
+                }
+              }}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -103,6 +117,7 @@ export default function SignIn() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={() => onSignIn()}
             >
               Sign In
             </Button>
@@ -121,7 +136,7 @@ export default function SignIn() {
             <Box mt={5}>
               <Copyright />
             </Box>
-          </form>
+          </div>
         </div>
       </Grid>
     </Grid>

@@ -14,20 +14,25 @@ import {
 // nem todo conteiner vai ter um component dentro
 export default ({ isAuthenticated }) => {
   if (isAuthenticated) {
+    // Put here private routes
     return (
       <Switch>
         <Route exact path="/" component={props => <Home {...props} />} />
         <Route path="/contact" component={props => <Contact {...props} />} />
         <Route path="/about" component={props => <About {...props} />} />
-        <Route path="/sign-in" component={props => <SignIn {...props} />} />
-        <Route path="/sign-up" component={props => <SignUp {...props} />} />
         <Route path="/room" component={props => <Room {...props} />} />
       </Switch>
     )
   }
+  // Put here public routes
   return (
     <Switch>
-      <NotAuthorized>não logado</NotAuthorized>
+      <Route exact path="/" component={props => <Home {...props} />} />
+      <Route path="/contact" component={props => <Contact {...props} />} />
+      <Route path="/about" component={props => <About {...props} />} />
+      <Route path="/sign-in" component={props => <SignIn {...props} />} />
+      <Route path="/sign-up" component={props => <SignUp {...props} />} />
+      <Route path="*" component={props => <NotAuthorized {...props} />} />
     </Switch>
   )
 }

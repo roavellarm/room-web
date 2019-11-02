@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import { useStore } from '../../core/store'
 
 const StyledLink = styled(Link)`
   color: white;
@@ -26,8 +27,14 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function ButtonAppBar() {
+export default function Menu({ isAuthenticated }) {
   const classes = useStyles()
+  const { setStore } = useStore()
+
+  const onLogout = () => {
+    localStorage.removeItem('isAuthenticated')
+    setStore({ isAuthenticated: false })
+  }
 
   return (
     <div className={classes.root}>
@@ -41,30 +48,36 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-
           <Typography variant="h6" className={classes.title}>
             <StyledLink to="/">Room</StyledLink>
           </Typography>
-
-          <StyledLink to="/room">
-            <Button color="inherit">Room</Button>
-          </StyledLink>
-
+          {isAuthenticated && (
+            <StyledLink to="/room">
+              <Button color="inherit">Room</Button>
+            </StyledLink>
+          )}
           <StyledLink to="/contact">
             <Button color="inherit">Contact</Button>
           </StyledLink>
-
           <StyledLink to="/about">
             <Button color="inherit">About</Button>
           </StyledLink>
+          {!isAuthenticated && (
+            <>
+              <StyledLink to="/sign-in">
+                <Button color="inherit">Sign-in</Button>
+              </StyledLink>
 
-          <StyledLink to="/sign-in">
-            <Button color="inherit">Sign-in</Button>
-          </StyledLink>
-
-          <StyledLink to="/sign-up">
-            <Button color="inherit">Sign-up</Button>
-          </StyledLink>
+              <StyledLink to="/sign-up">
+                <Button color="inherit">Sign-up</Button>
+              </StyledLink>
+            </>
+          )}
+          {isAuthenticated && (
+            <StyledLink onClick={() => onLogout()} to="/">
+              <Button color="inherit">Logout</Button>
+            </StyledLink>
+          )}
         </Toolbar>
       </AppBar>
     </div>
