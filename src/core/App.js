@@ -1,6 +1,6 @@
 import React from 'react'
 import Router from './Router'
-import { Menu } from '../components'
+import { NavBar } from '../components'
 import { useStore } from './store'
 
 export default () => {
@@ -8,9 +8,7 @@ export default () => {
   return (
     <>
       <div>
-        {store.isAuthenticated && (
-          <Menu isAuthenticated={store.isAuthenticated} />
-        )}
+        <NavBar isAuthenticated={store.isAuthenticated} />
       </div>
       <div>
         <Router isAuthenticated={store.isAuthenticated} />

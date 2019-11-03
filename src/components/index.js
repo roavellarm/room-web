@@ -1,5 +1,5 @@
 // Templates
-export { default as Menu } from './template/Menu'
+export { default as NavBar } from './template/NavBar'
 export { default as TextField } from './template/TextField'
 export { default as Button } from './template/Button'
 
