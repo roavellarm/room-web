@@ -8,7 +8,9 @@ export default () => {
   return (
     <>
       <div>
-        <Menu isAuthenticated={store.isAuthenticated} />
+        {store.isAuthenticated && (
+          <Menu isAuthenticated={store.isAuthenticated} />
+        )}
       </div>
       <div>
         <Router isAuthenticated={store.isAuthenticated} />
