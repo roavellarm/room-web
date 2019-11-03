@@ -4,14 +4,12 @@ import {
   About,
   Home,
   Contact,
-  NotAuthorized,
+  Unauthorized,
   SignIn,
   SignUp,
-  Room,
+  Office,
 } from '../containers'
 
-// Router pode conhecer somente o container,
-// nem todo container vai ter um component dentro
 export default ({ isAuthenticated }) => {
   if (isAuthenticated) {
     // Private routes
@@ -20,7 +18,7 @@ export default ({ isAuthenticated }) => {
         <Route exact path="/" component={props => <Home {...props} />} />
         <Route path="/contact" component={props => <Contact {...props} />} />
         <Route path="/about" component={props => <About {...props} />} />
-        <Route path="/room" component={props => <Room {...props} />} />
+        <Route path="/office" component={props => <Office {...props} />} />
       </Switch>
     )
   }
@@ -32,7 +30,7 @@ export default ({ isAuthenticated }) => {
       <Route path="/about" component={props => <About {...props} />} />
       <Route path="/sign-in" component={props => <SignIn {...props} />} />
       <Route path="/sign-up" component={props => <SignUp {...props} />} />
-      <Route path="*" component={props => <NotAuthorized {...props} />} />
+      <Route path="*" component={props => <Unauthorized {...props} />} />
     </Switch>
   )
 }

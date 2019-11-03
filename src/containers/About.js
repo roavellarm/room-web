@@ -1,31 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import * as requestsApi from '../api/requests'
+import React from 'react'
+import About from '../components/About'
 
 export default () => {
-  const [list, setList] = useState([])
-
-  // O useEffect garante que será chamado pelo menos uma vez o que estiver
-  // dentro da função ou toda vez que o array for alterado
-  useEffect(() => {
-    getAllGithubUsers()
-  }, [])
-
-  const getAllGithubUsers = async () => {
-    try {
-      const { data } = await requestsApi.getAll()
-      setList(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  return (
-    <div>
-      ABOUT
-      <div>
-        {list.map(user => {
-          return <p>{user.login}</p>
-        })}
-      </div>
-    </div>
-  )
+  return <About />
 }

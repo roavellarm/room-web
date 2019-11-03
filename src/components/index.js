@@ -4,4 +4,4 @@ export { default as TextField } from './template/TextField'
 export { default as Button } from './template/Button'
 
 // UI
-// export { default as Contact } from './Contact'
+export { default as Home } from './Home'
