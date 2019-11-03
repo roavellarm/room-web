@@ -52,7 +52,7 @@ ENDOFFILE
 # To add .env.production run
 $ cat > ./.env.production << ENDOFFILE
 REACT_APP_API_URL=<Put_your_production_Api_url_here>
-REACT_APP_MIXPANEL_TOKEN=<Put_your_MixPanel_token_here?
+REACT_APP_MIXPANEL_TOKEN=<Put_your_MixPanel_token_here>
 ENDOFFILE
 ```
 
