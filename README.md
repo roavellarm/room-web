@@ -34,6 +34,30 @@ $ yarn install
 
 <br />
 
+You'll need to add the ambient variables to the following env files:
+
+```shell
+# To add .env.development run
+$ cat > ./.env.development << ENDOFFILE
+REACT_APP_API_URL=http://localhost:5000
+REACT_APP_MIXPANEL_TOKEN=xxxxxxxxxxxxxxxx
+ENDOFFILE
+
+# To add .env.test run
+$ cat > ./.env.test << ENDOFFILE
+REACT_APP_API_URL=<Put_your_staging_Api_url_here>
+REACT_APP_MIXPANEL_TOKEN=<Put_your_MixPanel_token_here>
+ENDOFFILE
+
+# To add .env.production run
+$ cat > ./.env.production << ENDOFFILE
+REACT_APP_API_URL=<Put_your_production_Api_url_here>
+REACT_APP_MIXPANEL_TOKEN=<Put_your_MixPanel_token_here?
+ENDOFFILE
+```
+
+<br />
+
 To start the application in the development mode, run:
 
 ```
