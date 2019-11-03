@@ -5,8 +5,11 @@
 # Room
 
 
-TODO: Put some text about Room project here
+The Room project is a web application that aims to improve the interaction experience of remote workers.
+You can check the [Room API](https://github.com/roavellarm/room-api), the [Endpoints documentation](https://github.com/roavellarm/room-api/blob/master/schema/api.md) and the [MVP Process Documentation](https://github.com/roavellarm/room-doc/blob/master/README.md) on github.
 
+
+working application [here](https://room-web.netlify.com/), 
 
 ## Available Scripts
 
