@@ -1,26 +1,29 @@
 import React from 'react'
-import Avatar from '@material-ui/core/Avatar'
-import Button from '@material-ui/core/Button'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import TextField from '@material-ui/core/TextField'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox'
-import Link from '@material-ui/core/Link'
-import Paper from '@material-ui/core/Paper'
-import Grid from '@material-ui/core/Grid'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
+import {
+  Avatar,
+  CssBaseline,
+  TextField,
+  FormControlLabel,
+  Checkbox,
+  Link,
+  Paper,
+  Grid,
+  Typography,
+  makeStyles,
+} from '@material-ui/core'
+import Button from './templates/Button'
 
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(/images/dogo-barking.gif)',
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundSize: '100% auto',
+    backgroundImage: 'url(/images/dogo-barking.gif)',
+    backgroundPosition: 'top',
+    backgroundColor: 'white',
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -33,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -47,8 +50,8 @@ export default function SignIn({ onChangeField, onSubmit, fields }) {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <Grid item xs={false} sm={7} md={7} className={classes.image} />
+      <Grid item xs={12} sm={5} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -97,16 +100,7 @@ export default function SignIn({ onChangeField, onSubmit, fields }) {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={() => onSubmit()}
-            >
-              Sign In
-            </Button>
+            <Button onClick={() => onSubmit()}>Sign In</Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">

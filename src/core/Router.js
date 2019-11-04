@@ -7,7 +7,7 @@ import {
   Unauthorized,
   SignIn,
   SignUp,
-  Office,
+  Dashboard,
 } from '../containers'
 
 export default ({ isAuthenticated }) => {
@@ -18,7 +18,10 @@ export default ({ isAuthenticated }) => {
         <Route exact path="/" component={props => <Home {...props} />} />
         <Route path="/contact" component={props => <Contact {...props} />} />
         <Route path="/about" component={props => <About {...props} />} />
-        <Route path="/office" component={props => <Office {...props} />} />
+        <Route
+          path="/dashboard"
+          component={props => <Dashboard {...props} />}
+        />
       </Switch>
     )
   }
