@@ -1,6 +1,15 @@
 import React from 'react'
-// import { Button, TextField } from '..'
+import { Typography, Grid } from '@material-ui/core'
 
-export default ({ fields, onChangeField, onSubmit }) => {
-  return <></>
+export default () => {
+  return (
+    <>
+      <Typography component="h1" variant="h3">
+        Home
+      </Typography>
+      <Grid container>
+        
+      </Grid>
+    </>
+  )
 }
