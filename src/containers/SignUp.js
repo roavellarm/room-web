@@ -4,22 +4,6 @@ import { useStore } from '../core/store'
 import SignUp from '../components/SignUp'
 import { signUp } from '../api/auth'
 
-// Criar endpoints na camada de api (axios)         ok
-// importar react                                   ok
-// criar um export default                          ok
-// colocar return null                              ok
-// importar useState                                 ok
-/* criar todas as possiveis coisas relacionadas ao useState
-{
-
-}
-*/
-
-// Pensar quais funções vou utilizar
-// Precisaria pelo menos um onChange pq tem pelo menos um campom de texto
-// Criaria um OnSubmit pq tem pelo menos um no signUp
-// Começaria a montar o componente (visual)
-
 export default withRouter(({ history }) => {
   const { setStore } = useStore()
 
@@ -38,7 +22,7 @@ export default withRouter(({ history }) => {
       if (response.status === 200) {
         alert('Register with success')
         setStore({ isAuthenticated: true })
-        // limpar os dados do user depois
+        // Clean user data after register
         setFields({ email: '', password: '' })
         localStorage.setItem('isAuthenticated', true)
         history.push('/')
