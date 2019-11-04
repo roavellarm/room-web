@@ -21,14 +21,14 @@ export default withRouter(({ history }) => {
       const response = await signIn(fields)
       if (response.status === 200) {
         setStore({ isAuthenticated: true })
-        // limpar os dados do user depois
+        // Clean user data from the fields after submit
         setFields({ email: '', password: '' })
         localStorage.setItem('isAuthenticated', true)
-        history.push('/')
+        history.push('/dashboard')
       }
     } catch (error) {
       console.log(error)
-      // limpar a senha caso der errado
+      // Clean password field if something went wrong
       setFields({ ...fields, password: '' })
       alert('Something went wrong...')
     }
