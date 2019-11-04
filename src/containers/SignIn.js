@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import SignInComponent from '../components/SignIn'
-// import * as authApi from '../api/auth'
 import { signIn } from '../api/auth'
 import { useStore } from '../core/store'
 
