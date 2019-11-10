@@ -1,14 +1,8 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
-import { Button } from './templates'
+import { Button, Layout } from './templates'
 
 export default ({ showMessage }) => {
-  return (
-    <>
-      <Typography component="h1" variant="h3">
-        Contact
-      </Typography>
-      <Button onClick={() => showMessage()}>Show message</Button>
-    </>
-  )
+  const content = <Button onClick={() => showMessage()}>Show message</Button>
+
+  return <Layout title={'Contact'} content={content} />
 }

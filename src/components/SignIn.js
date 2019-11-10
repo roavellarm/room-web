@@ -16,7 +16,7 @@ import Button from './templates/Button'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '100vh',
+    minHeight: 'calc(100vh - 104px)',
   },
   image: {
     backgroundRepeat: 'no-repeat',
@@ -51,7 +51,7 @@ export default function SignIn({ onChangeField, onSubmit, fields }) {
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={7} md={7} className={classes.image} />
-      <Grid item xs={12} sm={5} md={5} component={Paper} elevation={6} square>
+      <Grid item xs={12} sm={5} md={5} component={Paper} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
