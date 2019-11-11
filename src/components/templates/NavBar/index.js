@@ -25,14 +25,14 @@ export default function NavBar({ isAuthenticated }) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar fluid position="static">
         <Toolbar variant="dense">
           <Typography variant="h6" className={classes.title}>
             <StyledLink to="/">
               <img
                 src="/images/logoText.png"
                 alt="logo"
-                height="35px"
+                height="28px"
                 align="center"
               />
             </StyledLink>
@@ -44,10 +44,6 @@ export default function NavBar({ isAuthenticated }) {
           )}
           <StyledLink to="/contact">
             <Button color="inherit">Contact</Button>
-          </StyledLink>
-
-          <StyledLink to="/about">
-            <Button color="inherit">About</Button>
           </StyledLink>
 
           {!isAuthenticated && (
