@@ -12,11 +12,11 @@ import {
   Typography,
   makeStyles,
 } from '@material-ui/core'
-import Button from './templates/Button'
+import { Button } from './templates'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    minHeight: 'calc(100vh - 104px)',
+    minHeight: 'inherit',
   },
   image: {
     backgroundRepeat: 'no-repeat',
