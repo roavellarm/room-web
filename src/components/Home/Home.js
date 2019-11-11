@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Container, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import {
@@ -8,16 +8,13 @@ import {
   responsiveFontSizes,
   ThemeProvider,
 } from '@material-ui/core/styles'
+import { Layout } from '../templates'
 
 let theme = createMuiTheme()
 theme = responsiveFontSizes(theme)
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    // maxWidth: '50%',
-  },
   mainFeaturedPost: {
-    position: 'relative',
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
@@ -28,7 +25,6 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'center',
   },
   mainFeaturedPostContent: {
-    position: 'relative',
     padding: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(6),
@@ -36,45 +32,40 @@ const useStyles = makeStyles(theme => ({
     },
   },
   overlay: {
-    position: 'absolute',
     top: 0,
     bottom: 0,
     right: 0,
     left: 0,
     backgroundColor: 'rgba(0,0,0,.3)',
   },
-  text: {
-    padding: theme.spacing(0, 12),
-  },
+  text: { padding: theme.spacing(4, 8, 8, 8) },
 }))
 
 export default () => {
   const classes = useStyles()
 
-  return (
-    <Container className={classes.container}>
+  const home = (
+    <>
       <Paper className={classes.mainFeaturedPost}>
         <Grid container>
-          <Grid item md={6}>
-            <div className={classes.mainFeaturedPostContent}>
-              <Typography
-                component="h1"
-                variant="h3"
-                color="inherit"
-                gutterBottom
-              >
-                Room
-              </Typography>
-              <Typography variant="h5" color="inherit" paragraph>
-                Bringing remote workers together
-              </Typography>
-            </div>
+          <Grid item sm={12} className={classes.mainFeaturedPostContent}>
+            <Typography
+              component="h1"
+              variant="h3"
+              color="inherit"
+              gutterBottom
+            >
+              Room
+            </Typography>
+            <Typography variant="h5" color="inherit">
+              Bringing remote workers together
+            </Typography>
           </Grid>
         </Grid>
       </Paper>
-      <ThemeProvider theme={theme}>
-        <Grid className={classes.text}>
-          <Typography>
+      <Grid item sm={8} className={classes.text}>
+        <ThemeProvider theme={theme}>
+          <Typography variant="h5" color="textSecondary" paragraph>
             Room é uma plataforma web para pessoas e empresas que trabalham de
             forma remota e carecem de uma comunicação mais aproximada. A
             aplicação visa promover maior eficiência nas comunicações e
@@ -106,8 +97,9 @@ export default () => {
             ambiente virtual mais produtível e agradável e conversem de forma
             mais conveniente (as salas temáticas contribuem pra isso).
           </Typography>
-        </Grid>
-      </ThemeProvider>
-    </Container>
+        </ThemeProvider>
+      </Grid>
+    </>
   )
+  return <Layout content={home} />
 }
