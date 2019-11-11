@@ -1,6 +1,7 @@
 import React from 'react'
-import Org from '../components/Org'
+import { Org } from '../components'
+import rooms from '../api/exampleData/orgs.json'
 
 export default () => {
-  return <Org />
+  return <Org rooms={rooms} />
 }

@@ -1,15 +1,15 @@
 import React from 'react'
+import { Layout, HeroSection } from '../templates'
+import { OrgsGrid } from '.'
 
-import { Layout, HeroSection, CardGrid } from './templates'
-
-export default function Album() {
+export default ({ orgs }) => {
   const content = (
     <>
       <HeroSection
         title={'Dashboard'}
         subtitle={'Here you can view all your organizations'}
       />
-      <CardGrid />
+      <OrgsGrid orgs={orgs} />
     </>
   )
   return <Layout content={content} />

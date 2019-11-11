@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Banana's Company",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "image":
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSp4WqNmZOTell-Inq_ctlWBL0dZmHms5tlwKF-zj3gSVOvbcNz"
+  },
+  {
+    "id": 2,
+    "name": "Apple Organization",
+    "description":
+      "Duis feugiat dolor sed nisl sodales, quis blandit neque mollis",
+    "image":
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSWYwT9o64AmWxjY1lor733aCR8EVFp0Sfh7BwKaZpmNkW-McSU"
+  },
+  {
+    "id": 3,
+    "name": "Orange Enterprise",
+    "description": "Sed feugiat non risus at malesuada.",
+    "image":
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQdRZ_BeVy_cNXTszg7vXuyEHqgUGALyWfuEvFjr24J-DPOXNUG"
+  },
+  {
+    "id": 4,
+    "name": "Grape Tech",
+    "description":
+      "Nullam tortor nunc, tempus et ligula a, dignissim pulvinar erat.",
+    "image":
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ1oMu_BHuXGQA2XRaAVZCL29qZeMHglKAIu5WRlO8WS3f1jucP"
+  },
+  {
+    "id": 5,
+    "name": "Strawberry Fields",
+    "description": "Vestibulum maximus mi ac libero laoreet semper.",
+    "image":
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwOpYtB5lL1zIuH9QizAcqajkTsEiPCnklfR9x7OMbAgqReP-N"
+  },
+  {
+    "id": 6,
+    "name": "Papaya Org",
+    "description":
+      "Nullam ultricies, magna id mollis cursus, diam ex dapibus odio, sit amet placerat lacus orci nec ante.",
+    "image":
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkra5m22kB5t1opsGwTtuhr9htzKzdsBfGrm1ueShD6ZcR1pxe"
+  }
+]
