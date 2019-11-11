@@ -1,12 +1,7 @@
 import React from 'react'
-import { HeroSection } from '../templates'
 import { RoomsGrid } from '.'
+import { Layout } from '../templates'
 
 export default ({ rooms }) => {
-  return (
-    <>
-      <HeroSection />
-      <RoomsGrid rooms={rooms} />
-    </>
-  )
+  return <Layout content={<RoomsGrid rooms={rooms} />} />
 }

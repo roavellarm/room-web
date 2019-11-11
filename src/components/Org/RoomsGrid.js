@@ -11,8 +11,8 @@ import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   roomGrid: {
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(8),
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(2),
   },
   room: {
     height: '100%',
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   roomMedia: {
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '50%', // 16:9
   },
   roomContent: {
     flexGrow: 1,
@@ -31,10 +31,10 @@ export default ({ rooms }) => {
   const classes = useStyles()
 
   return (
-    <Container className={classes.roomGrid} maxWidth="md">
+    <Container className={classes.roomGrid}>
       <Grid container spacing={4}>
         {rooms.map(room => (
-          <Grid item key={room} xs={12} sm={6} md={4}>
+          <Grid item key={room} xs={12} sm={6} md={4} lg={3}>
             <Card className={classes.room}>
               <CardMedia
                 className={classes.roomMedia}

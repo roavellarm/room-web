@@ -10,19 +10,19 @@ import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
-  cardGrid: {
+  orgGrid: {
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(8),
   },
-  card: {
+  org: {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
   },
-  cardMedia: {
+  orgMedia: {
     paddingTop: '56.25%', // 16:9
   },
-  cardContent: {
+  orgContent: {
     flexGrow: 1,
   },
 }))
@@ -31,21 +31,21 @@ export default ({ orgs }) => {
   const classes = useStyles()
 
   return (
-    <Container className={classes.cardGrid} maxWidth="md">
+    <Container className={classes.orgGrid} maxWidth="md">
       <Grid container spacing={4}>
-        {orgs.map(card => (
-          <Grid item key={card} xs={12} sm={6} md={4}>
-            <Card className={classes.card}>
+        {orgs.map(org => (
+          <Grid item key={org} xs={12} sm={6} md={4}>
+            <Card className={classes.org}>
               <CardMedia
-                className={classes.cardMedia}
-                image={card.image}
+                className={classes.orgMedia}
+                image={org.image}
                 title="Image title"
               />
-              <CardContent className={classes.cardContent}>
+              <CardContent className={classes.orgContent}>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {card.name}
+                  {org.name}
                 </Typography>
-                <Typography>{card.description}</Typography>
+                <Typography>{org.description}</Typography>
               </CardContent>
               <CardActions>
                 <Button size="small" color="primary">
