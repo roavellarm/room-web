@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import {
   Home,
-  Contact,
+  Feedback,
   Unauthorized,
   SignIn,
   SignUp,
@@ -15,7 +15,7 @@ export default ({ isAuthenticated }) => {
     return (
       <Switch>
         <Route exact path="/" component={props => <Home {...props} />} />
-        <Route path="/contact" component={props => <Contact {...props} />} />
+        <Route path="/feedback" component={props => <Feedback {...props} />} />
         <Route
           path="/dashboard"
           component={props => <Dashboard {...props} />}
@@ -28,7 +28,7 @@ export default ({ isAuthenticated }) => {
   return (
     <Switch>
       <Route exact path="/" component={props => <Home {...props} />} />
-      <Route path="/contact" component={props => <Contact {...props} />} />
+      <Route path="/feedback" component={props => <Feedback {...props} />} />
       <Route path="/sign-in" component={props => <SignIn {...props} />} />
       <Route path="/sign-up" component={props => <SignUp {...props} />} />
       <Route path="*" component={props => <Unauthorized {...props} />} />

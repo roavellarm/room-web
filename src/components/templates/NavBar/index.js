@@ -42,8 +42,8 @@ export default function NavBar({ isAuthenticated }) {
               <Button color="inherit">Dashboard</Button>
             </StyledLink>
           )}
-          <StyledLink to="/contact">
-            <Button color="inherit">Contact</Button>
+          <StyledLink to="/feedback">
+            <Button color="inherit">Feedback</Button>
           </StyledLink>
 
           {!isAuthenticated && (
