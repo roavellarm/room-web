@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core'
+import { UserIcon } from '../templates'
 
 const useStyles = makeStyles(theme => ({
   roomGrid: {
@@ -42,6 +43,7 @@ export default ({ rooms }) => {
                 title="Image title"
               />
               <CardContent className={classes.roomContent}>
+                <UserIcon status="onCall" />
                 <Typography gutterBottom variant="h5" component="h2">
                   {room.name}
                 </Typography>
