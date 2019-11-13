@@ -73,11 +73,6 @@ export default function SignIn({ onChangeField, onSubmit, fields, onKeyDown }) {
               onChange={onChangeField}
               value={fields.email}
               onKeyDown={onKeyDown}
-              // onKeyDown={({ keyCode }) => {
-              //   if (keyCode === 13) {
-              //     onSubmit()
-              //   }
-              // }}
             />
             <TextField
               variant="outlined"

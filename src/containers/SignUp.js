@@ -10,6 +10,10 @@ export default withRouter(({ history }) => {
 
   const [fields, setFields] = useState({})
 
+  const onKeyDown = ({ keyCode }) => {
+    if (keyCode === 13) return onSubmit()
+  }
+
   const onSubmit = async () => {
     try {
       if (fields.password !== fields.passwordConfirmation) {
@@ -23,7 +27,7 @@ export default withRouter(({ history }) => {
         // Clean user data after register
         setFields({ email: '', password: '' })
         localStorage.setItem('isAuthenticated', true)
-        history.push('/')
+        history.push('/dashboard')
       }
     } catch (error) {
       console.log(error)
@@ -37,6 +41,7 @@ export default withRouter(({ history }) => {
       fields={fields}
       onChangeField={onChangeField(fields, setFields)}
       onSubmit={onSubmit}
+      onKeyDown={onKeyDown}
     />
   )
 })
