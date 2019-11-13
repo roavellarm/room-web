@@ -18,8 +18,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
-    backgroundImage:
-      'url(https://miro.medium.com/max/4032/1*R7HneaJobQlvdwaOFMqatw.jpeg)',
+    backgroundImage: 'url(https://source.unsplash.com/random/900x200)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -65,7 +64,7 @@ export default () => {
       </Paper>
       <Grid item sm={8} className={classes.text}>
         <ThemeProvider theme={theme}>
-          <Typography variant="h5" color="textSecondary" paragraph>
+          <Typography variant="h6" color="textSecondary" paragraph>
             Room é uma plataforma web para pessoas e empresas que trabalham de
             forma remota e carecem de uma comunicação mais aproximada. A
             aplicação visa promover maior eficiência nas comunicações e

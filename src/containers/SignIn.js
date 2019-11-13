@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import SignInComponent from '../components/SignIn'
 import { signIn } from '../api/auth'
 import { useStore } from '../core/store'
+import onKeyDown from './shared/onKeyDown'
 
 export default withRouter(({ history }) => {
   const { setStore } = useStore()
@@ -12,9 +13,9 @@ export default withRouter(({ history }) => {
     setFields({ ...fields, [e.target.name]: e.target.value })
   }
 
-  const onKeyDown = ({ keyCode }) => {
-    if (keyCode === 13) return onSubmit()
-  }
+  // const onKeyDown = ({ keyCode }) => {
+  //   if (keyCode === 13) return onSubmit()
+  // }
 
   const onSubmit = async () => {
     try {
@@ -38,7 +39,7 @@ export default withRouter(({ history }) => {
       fields={fields}
       onChangeField={onChangeField}
       onSubmit={onSubmit}
-      onKeyDown={onKeyDown}
+      onKeyDown={onKeyDown(onSubmit)}
     />
   )
 })
