@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function SignIn({ onChangeField, onSubmit, fields }) {
+export default function SignIn({ onChangeField, onSubmit, fields, onKeyDown }) {
   const classes = useStyles()
 
   return (
@@ -72,11 +72,12 @@ export default function SignIn({ onChangeField, onSubmit, fields }) {
               autoFocus
               onChange={onChangeField}
               value={fields.email}
-              onKeyDown={({ keyCode }) => {
-                if (keyCode === 13) {
-                  onSubmit()
-                }
-              }}
+              onKeyDown={onKeyDown}
+              // onKeyDown={({ keyCode }) => {
+              //   if (keyCode === 13) {
+              //     onSubmit()
+              //   }
+              // }}
             />
             <TextField
               variant="outlined"
@@ -90,11 +91,7 @@ export default function SignIn({ onChangeField, onSubmit, fields }) {
               autoComplete="current-password"
               onChange={onChangeField}
               value={fields.password}
-              onKeyDown={({ keyCode }) => {
-                if (keyCode === 13) {
-                  onSubmit()
-                }
-              }}
+              onKeyDown={onKeyDown}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

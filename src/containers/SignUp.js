@@ -3,14 +3,12 @@ import { withRouter } from 'react-router-dom'
 import { useStore } from '../core/store'
 import SignUp from '../components/SignUp'
 import { signUp } from '../api/auth'
+import onChangeField from './shared/onChangeField'
 
 export default withRouter(({ history }) => {
   const { setStore } = useStore()
 
   const [fields, setFields] = useState({})
-  const onChangeField = e => {
-    setFields({ ...fields, [e.target.name]: e.target.value })
-  }
 
   const onSubmit = async () => {
     try {
@@ -35,6 +33,10 @@ export default withRouter(({ history }) => {
   }
 
   return (
-    <SignUp fields={fields} onChangeField={onChangeField} onSubmit={onSubmit} />
+    <SignUp
+      fields={fields}
+      onChangeField={onChangeField(fields, setFields)}
+      onSubmit={onSubmit}
+    />
   )
 })

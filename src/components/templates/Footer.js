@@ -1,14 +1,17 @@
 import React from 'react'
-import { Typography, Container, makeStyles } from '@material-ui/core'
-import { Copyright } from '.'
+import { Typography, Link, Container, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   footer: {
     // backgroundColor: '#FBECDD',
-    // backgroundColor: theme.palette.background.paper,
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(1),
     marginTop: 'auto',
+  },
+  text: {
+    variant: 'subtitle2',
+    align: 'center',
+    color: 'textSecondary',
   },
 }))
 
@@ -17,15 +20,16 @@ export default () => {
   return (
     <footer className={classes.footer}>
       <Container maxWidth="sm">
-        <Typography
-          variant="subtitle"
-          align="center"
-          color="textSecondary"
-          component="p"
-        >
+        <Typography variant="subtitle2" align="center" color="textSecondary">
           Room - Bringing remote workers together
+          <br />
+          {'Copyright © '}
+          <Link color="inherit" href="/">
+            Room
+          </Link>{' '}
+          {new Date().getFullYear()}
+          {'.'}
         </Typography>
-        <Copyright />
       </Container>
     </footer>
   )

@@ -1,16 +1,20 @@
 import React from 'react'
-import styled from 'styled-components'
+import { TextField } from '@material-ui/core'
 
-const StyledTextField = styled.input`
-  border: solid black 2px;
-  border-radius: 10px;
-`
-
-export default ({ label, name, value, onChange }) => {
+export default ({ id, name, label, value, onChange, onKeyDown, rows }) => {
   return (
-    <div>
-      <label>{label}</label>
-      <StyledTextField name={name} value={value} onChange={onChange} />
-    </div>
+    <TextField
+      id={id}
+      fullWidth
+      label={label}
+      margin="normal"
+      name={name}
+      onChange={onChange}
+      onKeyDown={onKeyDown}
+      rows={rows}
+      value={value}
+      multiline
+      variant="outlined"
+    />
   )
 }

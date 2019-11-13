@@ -25,7 +25,7 @@ export default function NavBar({ isAuthenticated }) {
 
   return (
     <div className={classes.root}>
-      <AppBar fluid position="static">
+      <AppBar fluid="true" position="static">
         <Toolbar variant="dense">
           <Typography variant="h6" className={classes.title}>
             <StyledLink to="/">
