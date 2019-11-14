@@ -3,6 +3,9 @@ import React, { useState, createContext, useContext } from 'react'
 const initialState = {
   isLoading: false,
   isAuthenticated: !!localStorage.getItem('isAuthenticated') ? true : false,
+  'access-token': localStorage.getItem('access-token'),
+  client: localStorage.getItem('client'),
+  uid: localStorage.getItem('uid'),
 }
 
 export const Context = createContext({})
