@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import FeedbackComponent from '../components/Feedback'
 import { sendFeedback } from '../api/feedback'
-import onChangeField from './shared/onChangeField'
 
 export default withRouter(({ history }) => {
   const [fields, setFields] = useState({})
+
+  const onChangeField = e => {
+    setFields({ ...fields, [e.target.name]: e.target.value })
+  }
 
   const onSubmit = async () => {
     try {
@@ -13,6 +16,7 @@ export default withRouter(({ history }) => {
       if (response.status === 201) {
         alert('Register feedback with success')
         setFields({ name: '', email: '', positives: '', negatives: '' })
+        history.push('/')
       }
     } catch (error) {
       console.log(error)
@@ -23,7 +27,7 @@ export default withRouter(({ history }) => {
   return (
     <FeedbackComponent
       fields={fields}
-      onChangeField={onChangeField(fields, setFields)}
+      onChangeField={onChangeField}
       onSubmit={onSubmit}
     />
   )

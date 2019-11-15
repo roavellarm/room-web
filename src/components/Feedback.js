@@ -3,7 +3,7 @@ import { Button, Layout, HeroSection } from './templates'
 import { Container } from '@material-ui/core'
 import { TextField } from './templates'
 
-export default ({ fields, onChangeField, onSubmit, onKeyDown }) => {
+export default ({ fields, onChangeField, onSubmit }) => {
   const feedbacks = [
     {
       name: 'name',
@@ -40,15 +40,15 @@ export default ({ fields, onChangeField, onSubmit, onKeyDown }) => {
             subtitle={'Please, share your experience using this app'}
           />
           <Container align="left" component="main" maxWidth="xs">
-            {feedbacks.map(fb => (
+            {feedbacks.map(feedback => (
               <TextField
-                id={fb.name}
-                name={fb.name}
-                value={fb.field}
-                label={fb.label}
+                key={feedback.name}
+                id={feedback.name}
+                name={feedback.name}
+                value={feedback.field}
+                label={feedback.label}
                 onChange={onChangeField}
-                onKeyDown={onKeyDown}
-                rows={fb.rows}
+                rows={feedback.rows}
               />
             ))}
             <Button onClick={() => onSubmit()}>Send feedback</Button>
