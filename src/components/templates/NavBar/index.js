@@ -9,7 +9,7 @@ import {
   makeStyles,
 } from '@material-ui/core'
 import LoggedUserLinks from './LoggedUserLinks'
-import IconButton from './IconButton'
+// import IconButton from './IconButton'
 
 const StyledLink = styled(Link)`
   color: white;
@@ -38,9 +38,14 @@ export default function NavBar({ isAuthenticated }) {
             </StyledLink>
           </Typography>
           {isAuthenticated && (
-            <StyledLink to="/dashboard">
-              <Button color="inherit">Dashboard</Button>
-            </StyledLink>
+            <>
+              <StyledLink to="/dashboard">
+                <Button color="inherit">Dashboard</Button>
+              </StyledLink>
+              <StyledLink to="/org">
+                <Button color="inherit">Org</Button>
+              </StyledLink>
+            </>
           )}
           <StyledLink to="/feedback">
             <Button color="inherit">Feedback</Button>
@@ -60,7 +65,7 @@ export default function NavBar({ isAuthenticated }) {
           {isAuthenticated && (
             <>
               <LoggedUserLinks />
-              <IconButton />
+              {/* <IconButton /> */}
             </>
           )}
         </Toolbar>

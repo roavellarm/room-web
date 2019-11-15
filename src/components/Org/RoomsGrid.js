@@ -35,7 +35,7 @@ export default ({ rooms }) => {
     <Container className={classes.roomGrid}>
       <Grid container spacing={4}>
         {rooms.map(room => (
-          <Grid item key={room} xs={12} sm={6} md={4} lg={3}>
+          <Grid item key={room.id} xs={12} sm={6} md={4} lg={3}>
             <Card className={classes.room}>
               <CardMedia
                 className={classes.roomMedia}

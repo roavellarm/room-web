@@ -9,6 +9,7 @@ export default withRouter(({ history }) => {
   const { setStore } = useStore()
   const onLogout = () => {
     localStorage.removeItem('isAuthenticated')
+    localStorage.removeItem('database')
     setStore({ isAuthenticated: false })
     history.push('/')
   }

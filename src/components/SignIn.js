@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function SignIn({ onChangeField, onSubmit, fields, onKeyDown }) {
+export default function SignIn({ onChangeField, onKeyDown, onSubmit, fields }) {
   const classes = useStyles()
 
   return (

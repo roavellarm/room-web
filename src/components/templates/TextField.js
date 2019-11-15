@@ -4,6 +4,7 @@ import { TextField } from '@material-ui/core'
 export default ({ id, name, label, value, onChange, onKeyDown, rows }) => {
   return (
     <TextField
+      key={id}
       id={id}
       fullWidth
       label={label}
