@@ -1,5 +1,6 @@
 import React from 'react'
+import { Unauthorized } from '../components'
 
 export default () => {
-  return <div>NAO AUTORIZADO</div>
+  return <Unauthorized />
 }

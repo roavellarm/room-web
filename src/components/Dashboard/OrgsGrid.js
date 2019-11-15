@@ -35,7 +35,7 @@ export default ({ orgs }) => {
     <Container className={classes.orgGrid} maxWidth="md">
       <Grid container spacing={4}>
         {orgs.map(org => (
-          <Grid item key={org} xs={12} sm={6} md={4}>
+          <Grid key={org.id} item xs={12} sm={6} md={4}>
             <Card className={classes.org}>
               <CardMedia
                 className={classes.orgMedia}

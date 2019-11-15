@@ -3,15 +3,22 @@ import { withRouter } from 'react-router-dom'
 import { useStore } from '../core/store'
 import SignUp from '../components/SignUp'
 import { signUp } from '../api/auth'
-import onChangeField from './shared/onChangeField'
+import { saveData } from '../helpers/storage'
 
 export default withRouter(({ history }) => {
   const { setStore } = useStore()
 
   const [fields, setFields] = useState({})
+  const onChangeField = e => {
+    setFields({ ...fields, [e.target.name]: e.target.value })
+  }
 
   const onKeyDown = ({ keyCode }) => {
     if (keyCode === 13) return onSubmit()
+  }
+
+  function cleanFields() {
+    setFields({ email: '', password: '', passwordConfirmation: '' })
   }
 
   const onSubmit = async () => {
@@ -24,14 +31,16 @@ export default withRouter(({ history }) => {
       if (response.status === 200) {
         alert('Register with success')
         setStore({ isAuthenticated: true })
+        saveData(response.headers)
+
         // Clean user data after register
-        setFields({ email: '', password: '' })
-        localStorage.setItem('isAuthenticated', true)
+        cleanFields()
+        // localStorage.setItem('isAuthenticated', true)
         history.push('/dashboard')
       }
     } catch (error) {
       console.log(error)
-      setFields({ ...fields, password: '', passwordConfirmation: '' })
+      // cleanFields()
       alert('Something went wrong...')
     }
   }
@@ -39,7 +48,7 @@ export default withRouter(({ history }) => {
   return (
     <SignUp
       fields={fields}
-      onChangeField={onChangeField(fields, setFields)}
+      onChangeField={onChangeField}
       onSubmit={onSubmit}
       onKeyDown={onKeyDown}
     />
