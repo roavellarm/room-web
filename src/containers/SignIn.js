@@ -9,26 +9,28 @@ export default withRouter(({ history }) => {
   const { setStore } = useStore()
 
   const [fields, setFields] = useState({ email: '', password: '' })
-  const onChangeField = e => {
-    setFields({ ...fields, [e.target.name]: e.target.value })
+  function onChangeField(e) {
+    return setFields({ ...fields, [e.target.name]: e.target.value })
   }
 
-  const onKeyDown = ({ keyCode }) => {
+  function onKeyDown({ keyCode }) {
     if (keyCode === 13) return onSubmit()
   }
 
+  function cleanFields() {
+    setFields({ email: '', password: '' })
+  }
+
   const onSubmit = async () => {
-    const cleanFields = () => {
-      setFields({ email: '', password: '' })
-    }
     try {
       const response = await signIn(fields)
       if (response.status === 200) {
         setStore({ isAuthenticated: true })
-        // Clean user data from the fields after submit
-        cleanFields()
-        localStorage.setItem('isAuthenticated', true)
         saveData(response.headers)
+        // Clean user data from the fields after submit
+        localStorage.setItem('isAuthenticated', true)
+        cleanFields()
+        // debugger
         history.push('/dashboard')
       }
     } catch (error) {
