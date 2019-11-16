@@ -1,9 +1,19 @@
 import React from 'react'
 import { TextField } from '@material-ui/core'
 
-export default ({ id, name, label, value, onChange, onKeyDown, rows }) => {
+export default ({
+  id,
+  name,
+  label,
+  value,
+  onChange,
+  onKeyDown,
+  rows,
+  autoComplete = 'off',
+}) => {
   return (
     <TextField
+      autoComplete={autoComplete}
       key={id}
       id={id}
       fullWidth

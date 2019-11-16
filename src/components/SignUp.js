@@ -3,14 +3,13 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import {
   Avatar,
   CssBaseline,
-  TextField,
   Link,
   Grid,
   Typography,
   makeStyles,
   Container,
 } from '@material-ui/core'
-import Button from './templates/Button'
+import { Button, TextField } from './templates'
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -56,22 +55,19 @@ export default function SignUp({ fields, onChangeField, onSubmit, onKeyDown }) {
               <TextField
                 autoComplete="fname"
                 name="first_name"
-                variant="outlined"
                 required
-                fullWidth
                 id="firstName"
                 label="First Name"
                 autoFocus
                 onChange={onChangeField}
                 value={fields.first_name}
                 onKeyDown={onKeyDown}
+                rows={1}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                variant="outlined"
                 required
-                fullWidth
                 id="lastName"
                 label="Last Name"
                 name="last_name"
@@ -83,9 +79,7 @@ export default function SignUp({ fields, onChangeField, onSubmit, onKeyDown }) {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                variant="outlined"
                 required
-                fullWidth
                 id="email"
                 label="Email Address"
                 name="email"
@@ -97,9 +91,7 @@ export default function SignUp({ fields, onChangeField, onSubmit, onKeyDown }) {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                variant="outlined"
                 required
-                fullWidth
                 name="password"
                 label="Password"
                 type="password"
@@ -111,9 +103,7 @@ export default function SignUp({ fields, onChangeField, onSubmit, onKeyDown }) {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                variant="outlined"
                 required
-                fullWidth
                 name="passwordConfirmation"
                 label="Password Confirmation"
                 type="password"
