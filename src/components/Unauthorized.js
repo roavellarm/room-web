@@ -6,7 +6,7 @@ import { makeStyles, Grid } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   img: {
-    position: "relative",
+    position: 'relative',
     width: '100%',
     height: 'auto',
   },
@@ -18,7 +18,7 @@ export default () => {
   const content = (
     <>
       <HeroSection title="Unautorized" />
-      <Grid xs={12} sm={5} md={7} lg={5}>
+      <Grid item xs={12} sm={10} md={7} lg={6}>
         <img alt="unauthorized" src={dogo} className={classes.img} />
       </Grid>
     </>
