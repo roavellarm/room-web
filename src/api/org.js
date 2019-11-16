@@ -9,11 +9,13 @@ export const getUserOrgs = () => {
   })
 }
 
-export const createUserOrg = (id, data) => {
+export const createUserOrg = data => {
   return axios({
     method: 'post',
-    url: `/org/${id}`,
+    url: '/org',
     headers: { ...retrieveData() },
-    params: data,
+    data: data,
   })
 }
+
+// export const sendFeedback = data => axios.post(`/feedback`, data)

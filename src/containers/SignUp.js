@@ -29,14 +29,13 @@ export default withRouter(({ history }) => {
       const response = await signUp(fields)
 
       if (response.status === 200) {
+        saveData(response.headers)
         alert('Register with success')
         setStore({ isAuthenticated: true })
-        saveData(response.headers)
 
         // Clean user data after register
         cleanFields()
-        // localStorage.setItem('isAuthenticated', true)
-        history.push('/dashboard')
+        history.push('/')
       }
     } catch (error) {
       console.log(error)
