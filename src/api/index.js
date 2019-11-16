@@ -2,9 +2,10 @@ import axios from 'axios'
 import { retrieveData } from '../helpers/storage'
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL
+axios.defaults.headers.post['token-type'] = 'Bearer'
+axios.defaults.headers.post['content-type'] = 'application/json; charset=utf-8'
 
 axios.interceptors.request.use(
-  // config => config,
   config => {
     return {
       ...config,

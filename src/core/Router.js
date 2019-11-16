@@ -8,6 +8,7 @@ import {
   SignUp,
   Dashboard,
   Org,
+  CreateOrg,
 } from '../containers'
 
 export default ({ isAuthenticated }) => {
@@ -19,6 +20,10 @@ export default ({ isAuthenticated }) => {
         <Route
           path="/dashboard"
           component={props => <Dashboard {...props} />}
+        />
+        <Route
+          path="/create-org"
+          component={props => <CreateOrg {...props} />}
         />
         <Route path="/org" component={props => <Org {...props} />} />
       </Switch>

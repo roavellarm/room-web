@@ -10,7 +10,7 @@ export const signUp = data => {
     method: 'post',
     url: base,
     headers: { ...retrieveData() },
-    params: data,
+    data: data,
   })
 }
 
@@ -21,7 +21,7 @@ export const signIn = data => {
     method: 'post',
     url: `${base}/sign_in`,
     headers: { ...retrieveData() },
-    params: data,
+    data: data,
   })
   return teste
 }
@@ -33,6 +33,6 @@ export const signOut = data => {
     method: 'delete',
     url: `${base}/sign_out`,
     headers: { ...retrieveData() },
-    params: data,
+    data: data,
   })
 }
