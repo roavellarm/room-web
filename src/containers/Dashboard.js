@@ -13,8 +13,8 @@ export default () => {
   const getOrgs = async () => {
     try {
       const response = await getUserOrgs()
-      saveData(response.headers)
       setList(response.data)
+      saveData(response.headers)
     } catch (error) {
       console.log(error)
     }

@@ -26,12 +26,11 @@ export default withRouter(({ history }) => {
       const response = await signIn(fields)
       if (response.status === 200) {
         setStore({ isAuthenticated: true })
+        localStorage.setItem('isAuthenticated', true)
         saveData(response.headers)
         // Clean user data from the fields after submit
-        localStorage.setItem('isAuthenticated', true)
         cleanFields()
-        // debugger
-        history.push('/dashboard')
+        history.push('/')
       }
     } catch (error) {
       console.log(error)
