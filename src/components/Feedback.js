@@ -1,7 +1,5 @@
 import React from 'react'
-import { Button, Layout, HeroSection } from './templates'
-import { Container } from '@material-ui/core'
-import { TextField } from './templates'
+import { Form } from './templates'
 
 export default ({ fields, onChangeField, onSubmit }) => {
   const feedbacks = [
@@ -32,29 +30,13 @@ export default ({ fields, onChangeField, onSubmit }) => {
   ]
 
   return (
-    <Layout
-      content={
-        <>
-          <HeroSection
-            title={'Feedback'}
-            subtitle={'Please, share your experience using this app'}
-          />
-          <Container align="left" component="main" maxWidth="xs">
-            {feedbacks.map(feedback => (
-              <TextField
-                key={feedback.name}
-                id={feedback.name}
-                name={feedback.name}
-                value={feedback.field}
-                label={feedback.label}
-                onChange={onChangeField}
-                rows={feedback.rows}
-              />
-            ))}
-            <Button onClick={() => onSubmit()}>Send feedback</Button>
-          </Container>
-        </>
-      }
+    <Form
+      onChangeField={onChangeField}
+      onSubmit={onSubmit}
+      list={feedbacks}
+      sectionTitle={'Feedback'}
+      sectionSubtitle={'Please, share your experience using this app'}
+      buttonTitle="Send feedback"
     />
   )
 }

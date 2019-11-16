@@ -13,7 +13,6 @@ export default withRouter(({ history }) => {
 
   const onSubmit = async () => {
     try {
-      console.log(fields)
       const response = await createUserOrg(fields)
       if (response.status === 201) {
         saveData(response.headers)

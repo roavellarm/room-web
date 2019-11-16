@@ -1,7 +1,5 @@
 import React from 'react'
-import { Button, Layout, HeroSection } from './templates'
-import { Container } from '@material-ui/core'
-import { TextField } from './templates'
+import { Form } from './templates'
 
 export default ({ fields, onChangeField, onSubmit }) => {
   const orgs = [
@@ -26,29 +24,13 @@ export default ({ fields, onChangeField, onSubmit }) => {
   ]
 
   return (
-    <Layout
-      content={
-        <>
-          <HeroSection
-            title={'Create Organization'}
-            subtitle={'Start here creating your own organization'}
-          />
-          <Container align="left" component="main" maxWidth="xs">
-            {orgs.map(org => (
-              <TextField
-                key={org.name}
-                id={org.name}
-                name={org.name}
-                value={org.field}
-                label={org.label}
-                onChange={onChangeField}
-                rows={org.rows}
-              />
-            ))}
-            <Button onClick={() => onSubmit()}>Create Organization</Button>
-          </Container>
-        </>
-      }
+    <Form
+      onChangeField={onChangeField}
+      onSubmit={onSubmit}
+      list={orgs}
+      sectionTitle="Create Organization"
+      sectionSubtitle="Start here creating your own organization"
+      buttonTitle="Create Organization"
     />
   )
 }
