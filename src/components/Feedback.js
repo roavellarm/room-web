@@ -4,27 +4,30 @@ import { Form } from './templates'
 export default ({ fields, onChangeField, onSubmit }) => {
   const feedbacks = [
     {
+      autoFocus: true,
+      required: true,
       name: 'name',
       label: 'Name',
       field: fields.name,
-      rows: 1,
     },
     {
       name: 'email',
+      type: 'email',
       label: 'Email',
       field: fields.email,
-      rows: 1,
     },
     {
       name: 'positives',
       label: 'Positives',
       field: fields.positives,
+      multiline: true,
       rows: 4,
     },
     {
       name: 'negatives',
       label: 'Negatives',
       field: fields.negatives,
+      multiline: true,
       rows: 4,
     },
   ]

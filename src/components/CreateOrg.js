@@ -1,25 +1,31 @@
 import React from 'react'
 import { Form } from './templates'
+import { getUser } from '../helpers/handleUser'
 
 export default ({ fields, onChangeField, onSubmit }) => {
   const orgs = [
     {
+      name: 'user_id',
+      type: 'hidden',
+      field: getUser().id,
+    },
+    {
+      autoFocus: true,
       name: 'name',
       label: 'Name',
       field: fields.name,
-      rows: 1,
     },
     {
       name: 'description',
       label: 'Description',
       field: fields.description,
+      multiline: 'true',
       rows: 4,
     },
     {
       name: 'image',
       label: 'Image',
       field: fields.image,
-      rows: 1,
     },
   ]
 

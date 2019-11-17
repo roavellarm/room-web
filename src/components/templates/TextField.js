@@ -9,11 +9,18 @@ export default ({
   onChange,
   onKeyDown,
   rows,
-  autoComplete = 'off',
+  required,
+  type,
+  autoComplete,
+  autoFocus,
+  multiline,
 }) => {
   return (
     <TextField
       autoComplete={autoComplete}
+      autoFocus={autoFocus}
+      type={type}
+      required={required}
       key={id}
       id={id}
       fullWidth
@@ -24,7 +31,7 @@ export default ({
       onKeyDown={onKeyDown}
       rows={rows}
       value={value}
-      multiline
+      multiline={multiline}
       variant="outlined"
     />
   )
