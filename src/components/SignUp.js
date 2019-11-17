@@ -3,14 +3,13 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import {
   Avatar,
   CssBaseline,
-  TextField,
   Link,
   Grid,
   Typography,
   makeStyles,
   Container,
 } from '@material-ui/core'
-import Button from './templates/Button'
+import { Button, TextField } from './templates'
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -39,6 +38,47 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignUp({ fields, onChangeField, onSubmit, onKeyDown }) {
   const classes = useStyles()
+  const list = [
+    {
+      sm: 6,
+      autoFocus: true,
+      autoComplete: 'name',
+      name: 'first_name',
+      label: 'First Name',
+      value: fields.first_name,
+      onChange: onChangeField,
+    },
+    {
+      sm: 6,
+      autoComplete: 'given-name',
+      name: 'last_name',
+      label: 'Last Name',
+      value: fields.last_name,
+      onChange: onChangeField,
+    },
+    {
+      autoComplete: true,
+      label: 'Email Address',
+      name: 'email',
+      type: 'email',
+      value: fields.email,
+      onChange: onChangeField,
+    },
+    {
+      name: 'password',
+      label: 'Password',
+      type: 'password',
+      value: fields.password,
+      onChange: onChangeField,
+    },
+    {
+      name: 'passwordConfirmation',
+      label: 'Password Confirmation',
+      type: 'password',
+      value: fields.passwordConfirmation,
+      onChange: onChangeField,
+    },
+  ]
 
   return (
     <Container component="main" maxWidth="xs">
@@ -52,77 +92,23 @@ export default function SignUp({ fields, onChangeField, onSubmit, onKeyDown }) {
         </Typography>
         <div className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="first_name"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-                onChange={onChangeField}
-                value={fields.first_name}
-                onKeyDown={onKeyDown}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="last_name"
-                autoComplete="lname"
-                onChange={onChangeField}
-                value={fields.last_name}
-                onKeyDown={onKeyDown}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                onChange={onChangeField}
-                value={fields.email}
-                onKeyDown={onKeyDown}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                onChange={onChangeField}
-                value={fields.password}
-                onKeyDown={onKeyDown}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="passwordConfirmation"
-                label="Password Confirmation"
-                type="password"
-                id="passwordConfirmation"
-                onChange={onChangeField}
-                value={fields.passwordConfirmation}
-                onKeyDown={onKeyDown}
-              />
-            </Grid>
+            {list.map(item => (
+              <Grid key={item.name} item xs={12} sm={item.sm ? item.sm : 12}>
+                <TextField
+                  key={item.name}
+                  name={item.name}
+                  id={item.name}
+                  label={item.label}
+                  autoFocus={item.autoFocus}
+                  value={fields.first_name}
+                  type={item.type}
+                  autoComplete={item.autoComplete}
+                  onChange={item.onChangeField}
+                  onKeyDown={onKeyDown}
+                  required={true}
+                />
+              </Grid>
+            ))}
             <Grid item xs={12}>
               <Button onClick={() => onSubmit()}>Sign Up</Button>
             </Grid>

@@ -4,6 +4,7 @@ import SignInComponent from '../components/SignIn'
 import { signIn } from '../api/auth'
 import { useStore } from '../core/store'
 import { saveData } from '../helpers/storage'
+import { saveUser, getUser } from '../helpers/handleUser'
 
 export default withRouter(({ history }) => {
   const { setStore } = useStore()
@@ -17,17 +18,17 @@ export default withRouter(({ history }) => {
     if (keyCode === 13) return onSubmit()
   }
 
-  function cleanFields() {
-    setFields({ email: '', password: '' })
-  }
-
   const onSubmit = async () => {
+    const cleanFields = () => setFields({ email: '', password: '' })
+
     try {
       const response = await signIn(fields)
       if (response.status === 200) {
         setStore({ isAuthenticated: true })
         localStorage.setItem('isAuthenticated', true)
         saveData(response.headers)
+        saveUser(response.data.data)
+        console.log(getUser().id)
         // Clean user data from the fields after submit
         cleanFields()
         history.push('/')

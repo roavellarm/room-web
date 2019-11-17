@@ -18,11 +18,15 @@ export default ({
           <Container align="left" component="main" maxWidth="xs">
             {list.map(item => (
               <TextField
+                autoFocus={item.autoFocus}
                 key={item.name}
                 id={item.name}
+                required={item.required}
                 name={item.name}
+                type={item.type}
                 value={item.field}
                 label={item.label}
+                multiline={item.multiline}
                 onChange={onChangeField}
                 rows={item.rows}
               />
