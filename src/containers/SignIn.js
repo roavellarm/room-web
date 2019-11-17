@@ -4,7 +4,7 @@ import SignInComponent from '../components/SignIn'
 import { signIn } from '../api/auth'
 import { useStore } from '../core/store'
 import { saveData } from '../helpers/storage'
-import { saveUser, getUser } from '../helpers/handleUser'
+import { saveUser } from '../helpers/handleUser'
 
 export default withRouter(({ history }) => {
   const { setStore } = useStore()
@@ -28,7 +28,6 @@ export default withRouter(({ history }) => {
         localStorage.setItem('isAuthenticated', true)
         saveData(response.headers)
         saveUser(response.data.data)
-        console.log(getUser().id)
         // Clean user data from the fields after submit
         cleanFields()
         history.push('/')
