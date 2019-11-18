@@ -35,7 +35,7 @@ export default withRouter(({ history }) => {
 
         // Clean user data after register
         cleanFields()
-        history.push('/')
+        history.push('/dashboard')
       }
     } catch (error) {
       console.log(error)
