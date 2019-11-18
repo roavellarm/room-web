@@ -11,13 +11,18 @@ import { makeStyles } from '@material-ui/core'
 import { UserIcon } from '../templates'
 
 const useStyles = makeStyles(theme => ({
+  roomGrid: {
+    backgroundColor: theme.palette.background.paper,
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+  },
   roomCard: {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
   },
   roomMedia: {
-    paddingTop: '50%', // 16:9
+    paddingBottom: '50%',
   },
   roomContent: {
     flexGrow: 1,
@@ -28,23 +33,37 @@ export default ({ list }) => {
   const classes = useStyles()
 
   return (
-    <Container maxWidth={false}>
+    <Container maxWidth={false} className={classes.roomCard}>
       <Grid container spacing={3}>
         {list.map(room => (
           <Grid item key={room.id} xs={12} sm={6} md={4}>
             <Card className={classes.roomCard}>
-              <CardMedia
-                className={classes.roomMedia}
-                image={room.background_image}
-                title="Image title"
-              />
               <CardContent className={classes.roomContent}>
-                <UserIcon status="onCall" />
                 <Typography gutterBottom variant="h5" component="h2">
                   {room.title}
                 </Typography>
                 <Typography>{room.subtitle}</Typography>
               </CardContent>
+              <CardMedia
+                className={classes.roomMedia}
+                image={room.background_image}
+                title="Image title"
+              >
+                <Grid container marginLeft="100px" spacing={2}>
+                  <Grid item>
+                    <UserIcon status="onCall" />
+                  </Grid>
+                  <Grid item>
+                    <UserIcon status="onCall" />
+                  </Grid>
+                  <Grid item>
+                    <UserIcon status="onCall" />
+                  </Grid>
+                  <Grid item>
+                    <UserIcon status="onCall" />
+                  </Grid>
+                </Grid>
+              </CardMedia>
               <CardActions>
                 <Button size="small" color="primary">
                   Enter room
