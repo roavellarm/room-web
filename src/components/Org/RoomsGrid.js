@@ -11,11 +11,7 @@ import { makeStyles } from '@material-ui/core'
 import { UserIcon } from '../templates'
 
 const useStyles = makeStyles(theme => ({
-  roomGrid: {
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(2),
-  },
-  room: {
+  roomCard: {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -28,26 +24,26 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default ({ rooms }) => {
+export default ({ list }) => {
   const classes = useStyles()
 
   return (
-    <Container className={classes.roomGrid}>
-      <Grid container spacing={4}>
-        {rooms.map(room => (
-          <Grid item key={room.id} xs={12} sm={6} md={4} lg={3}>
-            <Card className={classes.room}>
+    <Container maxWidth={false}>
+      <Grid container spacing={3}>
+        {list.map(room => (
+          <Grid item key={room.id} xs={12} sm={6} md={4}>
+            <Card className={classes.roomCard}>
               <CardMedia
                 className={classes.roomMedia}
-                image={room.image}
+                image={room.background_image}
                 title="Image title"
               />
               <CardContent className={classes.roomContent}>
                 <UserIcon status="onCall" />
                 <Typography gutterBottom variant="h5" component="h2">
-                  {room.name}
+                  {room.title}
                 </Typography>
-                <Typography>{room.description}</Typography>
+                <Typography>{room.subtitle}</Typography>
               </CardContent>
               <CardActions>
                 <Button size="small" color="primary">
