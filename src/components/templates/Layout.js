@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default ({ title, content }) => {
+export default ({ title, children, content }) => {
   const classes = useStyles()
 
   return (
@@ -29,11 +29,11 @@ export default ({ title, content }) => {
       )}
       {title != null ? (
         <Grid align="center" className={classes.content}>
-          {content}
+          {content || children}
         </Grid>
       ) : (
         <Grid align="center" className={classes.content2}>
-          {content}
+          {content || children}
         </Grid>
       )}
       <Footer />

@@ -9,6 +9,7 @@ import {
   Dashboard,
   Org,
   CreateOrg,
+  CreateRoom,
 } from '../containers'
 
 export default ({ isAuthenticated }) => {
@@ -25,7 +26,11 @@ export default ({ isAuthenticated }) => {
           path="/create-org"
           component={props => <CreateOrg {...props} />}
         />
-        <Route path="/org" component={props => <Org {...props} />} />
+        <Route
+          path="/create-room/:orgId"
+          children={props => <CreateRoom {...props} />}
+        />
+        <Route path="/org/:id" children={props => <Org {...props} />} />
       </Switch>
     )
   }

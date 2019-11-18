@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   orgGrid: {
@@ -49,9 +50,11 @@ export default ({ orgs }) => {
                 <Typography>{org.description}</Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" color="primary">
-                  Enter org
-                </Button>
+                <Link to={`/org/${org.id}`}>
+                  <Button size="small" color="primary">
+                    Enter org
+                  </Button>
+                </Link>
               </CardActions>
             </Card>
           </Grid>

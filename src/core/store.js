@@ -3,12 +3,12 @@ import React, { useState, createContext, useContext } from 'react'
 const initialState = {
   isLoading: false,
   isAuthenticated: !!localStorage.getItem('isAuthenticated') ? true : false,
-  'access-token': localStorage.getItem('access-token'),
-  'token-type': localStorage.getItem('token-type'),
-  'content-type': localStorage.getItem('content-type'),
-  client: localStorage.getItem('client'),
-  uid: localStorage.getItem('uid'),
-  expiry: localStorage.getItem('expiry'),
+  Client: localStorage.getItem('client'),
+  Uid: localStorage.getItem('uid'),
+  Expiry: localStorage.getItem('expiry'),
+  'Access-Token': localStorage.getItem('access-token'),
+  'Token-Type': localStorage.getItem('token-type'),
+  'Content-Type': localStorage.getItem('content-type'),
 }
 
 export const Context = createContext({})
