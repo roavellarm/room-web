@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import CreateRoomComponent from '../components/CreateRoom'
 import { createRoom } from '../api/room'
-// import { saveData } from '../helpers/storage'
+import { saveData } from '../helpers/storage'
 
 export default withRouter(({ history, match }) => {
   const { org_id } = match.params
@@ -17,6 +17,7 @@ export default withRouter(({ history, match }) => {
       const response = await createRoom(fields)
       if (response.status === 201) {
         alert('Register room with success')
+        saveData(response.headers)
         history.push(`/org/${org_id}`)
       }
     } catch (error) {

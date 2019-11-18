@@ -8,9 +8,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-// src="https://meet.jit.si/098098098"
-
-export default ({ url }) => {
+export default ({ token }) => {
   const classes = useStyles()
 
   return (
@@ -18,7 +16,7 @@ export default ({ url }) => {
       className={classes.frame}
       id="call"
       title="Call"
-      src={url}
+      src={`https://meet.jit.si/${token}`}
       allow="geolocation; microphone; camera"
     />
   )

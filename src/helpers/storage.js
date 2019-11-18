@@ -1,13 +1,15 @@
 const key = 'database'
 
 export function retrieveData() {
-  const data = localStorage.getItem(key)
-  return JSON.parse(data)
+  return JSON.parse(localStorage.getItem(key))
 }
 
-// export function saveData(data) {
-//   return Object.keys(data).map(i => localStorage.setItem(i, data[i]))
-// }
+export function saveObject(object) {
+  return Object.keys(object).map(i => localStorage.setItem(i, object[i]))
+}
+
 export function saveData(data) {
-  localStorage.setItem(key, JSON.stringify(data))
+  if (data['access-token']) {
+    localStorage.setItem(key, JSON.stringify(data))
+  }
 }
