@@ -1,16 +1,10 @@
 import React from 'react'
-import { Layout, HeroSection } from '../templates'
-import { OrgsGrid } from '.'
+import { Layout } from '../templates'
+import { WithOrgs, WithoutOrg } from '.'
 
 export default ({ orgs }) => {
   const content = (
-    <>
-      <HeroSection
-        title={'Dashboard'}
-        subtitle={'Here you can view all your organizations'}
-      />
-      <OrgsGrid orgs={orgs} />
-    </>
+    <>{!!orgs.lenght ? <WithoutOrg /> : <WithOrgs orgs={orgs} />}</>
   )
   return <Layout content={content} />
 }
