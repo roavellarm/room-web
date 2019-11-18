@@ -27,7 +27,7 @@ export default ({ isAuthenticated }) => {
           component={props => <CreateOrg {...props} />}
         />
         <Route
-          path="/create-room/:orgId"
+          path="/create-room/:org_id"
           children={props => <CreateRoom {...props} />}
         />
         <Route path="/org/:id" children={props => <Org {...props} />} />
