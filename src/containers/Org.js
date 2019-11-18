@@ -9,7 +9,7 @@ export default props => {
   const getRooms = async () => {
     try {
       const response = await getRoomsByOrg(id)
-      setList(response.data)
+      setList(response.data.rooms)
     } catch (error) {
       console.log(error)
     }
@@ -17,7 +17,7 @@ export default props => {
 
   useEffect(() => {
     getRooms()
-  }, [getRooms])
+  }, [])
 
-  return <Org rooms={list} orgId={id} />
+  return <Org list={list} org_id={id} />
 }
