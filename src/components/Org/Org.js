@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { RoomsGrid } from '.'
 import { Layout, Button } from '../templates'
+import { RoomsGrid } from '.'
 
-export default ({ rooms, orgId }) => {
+export default ({ list, org_id }) => {
   return (
     <Layout>
-      <Link to={`/create-room/${orgId}`}>
+      <Link to={`/create-room/${org_id}`} style={{ textDecoration: 'none' }}>
         <Button>Create new room</Button>
       </Link>
-      <RoomsGrid rooms={rooms} />
+      <RoomsGrid list={list} />
     </Layout>
   )
 }
