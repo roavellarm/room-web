@@ -30,7 +30,7 @@ export default withRouter(({ history }) => {
         saveUser(response.data.data)
         // Clean user data from the fields after submit
         cleanFields()
-        history.push('/dashboard')
+        history.push('/')
       }
     } catch (error) {
       console.log(error)

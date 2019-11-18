@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Org } from '../components'
 import { getRoomsByOrg } from '../api/room'
+import { saveData } from '../helpers/storage'
 
 export default props => {
   const { id } = props.match.params
@@ -10,6 +11,8 @@ export default props => {
     try {
       const response = await getRoomsByOrg(id)
       setList(response.data.rooms)
+      localStorage.setItem('orgName', response.data.name)
+      saveData(response.headers)
     } catch (error) {
       console.log(error)
     }
@@ -19,5 +22,5 @@ export default props => {
     getRooms()
   }, [])
 
-  return <Org list={list} org_id={id} />
+  return <Org list={list} name={localStorage.getItem('orgName')} org_id={id} />
 }

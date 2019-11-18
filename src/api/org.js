@@ -1,14 +1,7 @@
 import axios from './'
-import { retrieveData } from '../helpers/storage'
 import { getUser } from '../helpers/handleUser'
 
-export const getUserOrgs = () => {
-  return axios({
-    method: 'get',
-    url: '/org',
-    headers: { ...retrieveData() },
-  })
-}
+export const getUserOrgs = () => axios.get('/org')
 
 export const createUserOrg = data => {
   const params = {
@@ -20,7 +13,6 @@ export const createUserOrg = data => {
   return axios({
     method: 'post',
     url: '/org',
-    headers: { ...retrieveData() },
     data: params,
   })
 }
