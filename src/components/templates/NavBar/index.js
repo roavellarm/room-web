@@ -38,17 +38,9 @@ export default function NavBar({ isAuthenticated }) {
             </StyledLink>
           </Typography>
           {isAuthenticated && (
-            <>
-              <StyledLink to="/dashboard">
-                <Button color="inherit">Dashboard</Button>
-              </StyledLink>
-              <StyledLink to="/org">
-                <Button color="inherit">Org</Button>
-              </StyledLink>
-              <StyledLink to="/create-room">
-                <Button color="inherit">CreateRoom</Button>
-              </StyledLink>
-            </>
+            <StyledLink to="/dashboard">
+              <Button color="inherit">Dashboard</Button>
+            </StyledLink>
           )}
           <StyledLink to="/feedback">
             <Button color="inherit">Feedback</Button>
