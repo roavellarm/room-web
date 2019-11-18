@@ -5,7 +5,7 @@ import { createRoom } from '../api/room'
 // import { saveData } from '../helpers/storage'
 
 export default withRouter(({ history, match }) => {
-  const { orgId } = match.params
+  const { orgId } = +match.params
   const [fields, setFields] = useState({ org_id: orgId })
 
   const onChangeField = e => {
