@@ -45,38 +45,28 @@ export default function SignUp({ fields, onChangeField, onSubmit, onKeyDown }) {
       autoComplete: 'name',
       name: 'first_name',
       label: 'First Name',
-      value: fields.first_name,
-      onChange: onChangeField,
     },
     {
       sm: 6,
       autoComplete: 'given-name',
       name: 'last_name',
       label: 'Last Name',
-      value: fields.last_name,
-      onChange: onChangeField,
     },
     {
       autoComplete: true,
       label: 'Email Address',
       name: 'email',
       type: 'email',
-      value: fields.email,
-      onChange: onChangeField,
     },
     {
       name: 'password',
       label: 'Password',
       type: 'password',
-      value: fields.password,
-      onChange: onChangeField,
     },
     {
       name: 'passwordConfirmation',
       label: 'Password Confirmation',
       type: 'password',
-      value: fields.passwordConfirmation,
-      onChange: onChangeField,
     },
   ]
 
@@ -100,10 +90,10 @@ export default function SignUp({ fields, onChangeField, onSubmit, onKeyDown }) {
                   id={item.name}
                   label={item.label}
                   autoFocus={item.autoFocus}
-                  value={fields.first_name}
+                  value={fields[item.name]}
                   type={item.type}
                   autoComplete={item.autoComplete}
-                  onChange={item.onChangeField}
+                  onChange={onChangeField}
                   onKeyDown={onKeyDown}
                   required={true}
                 />
