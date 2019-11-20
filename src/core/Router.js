@@ -10,6 +10,7 @@ import {
   Org,
   CreateOrg,
   CreateRoom,
+  Call,
 } from '../containers'
 
 export default ({ isAuthenticated }) => {
@@ -31,6 +32,7 @@ export default ({ isAuthenticated }) => {
           children={props => <CreateRoom {...props} />}
         />
         <Route path="/org/:id" children={props => <Org {...props} />} />
+        <Route path="/call/:token" children={props => <Call {...props} />} />
       </Switch>
     )
   }
