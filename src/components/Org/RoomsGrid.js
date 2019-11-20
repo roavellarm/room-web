@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
@@ -53,24 +54,20 @@ export default ({ list }) => {
                   <Grid item>
                     <UserIcon status="onCall" />
                   </Grid>
-                  <Grid item>
-                    <UserIcon status="onCall" />
-                  </Grid>
-                  <Grid item>
-                    <UserIcon status="onCall" />
-                  </Grid>
-                  <Grid item>
-                    <UserIcon status="onCall" />
-                  </Grid>
                 </Grid>
               </CardMedia>
               <CardActions>
                 <Button size="small" color="primary">
                   Enter room
                 </Button>
-                <Button size="small" color="primary">
-                  Meeting
-                </Button>
+                <Link
+                  to={`/call/${room.token}`}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <Button size="small" color="primary">
+                    Meeting
+                  </Button>
+                </Link>
               </CardActions>
             </Card>
           </Grid>
