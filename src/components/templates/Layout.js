@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     minHeight: 'calc(100vh - 157px)',
   },
   content2: {
-    minHeight: 'calc(100vh - 102px)',
+    minHeight: 'calc(100vh - 107px)',
   },
 }))
 
@@ -36,7 +36,7 @@ export default ({ title, children, content }) => {
           {content || children}
         </Grid>
       )}
-      <Footer />
+      {<Footer />}
     </>
   )
 }

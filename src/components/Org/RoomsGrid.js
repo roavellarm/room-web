@@ -50,7 +50,7 @@ export default ({ list }) => {
                 image={room.background_image}
                 title="Image title"
               >
-                <Grid container marginLeft="100px" spacing={2}>
+                <Grid container spacing={2}>
                   <Grid item>
                     <UserIcon status="onCall" />
                   </Grid>
