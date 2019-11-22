@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   frame: {
-    minWidth: '100%',
-    minHeight: 'inherit',
+    width: '99%',
+    minHeight: 'calc(100vh - 115px)',
   },
 }))
 
