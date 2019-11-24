@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default ({ list }) => {
+export default ({ list, onEnterInRoom, onEnterInChat }) => {
   const classes = useStyles()
 
   return (
@@ -57,7 +57,11 @@ export default ({ list }) => {
                 </Grid>
               </CardMedia>
               <CardActions>
-                <Button size="small" color="primary">
+                <Button
+                  onClick={() => onEnterInRoom(room.id)}
+                  size="small"
+                  color="primary"
+                >
                   Enter room
                 </Button>
                 <Link
@@ -68,6 +72,13 @@ export default ({ list }) => {
                     Meeting
                   </Button>
                 </Link>
+                <Button
+                  size="small"
+                  onClick={() => onEnterInChat(room)}
+                  color="primary"
+                >
+                  Chat
+                </Button>
               </CardActions>
             </Card>
           </Grid>
