@@ -20,6 +20,7 @@ export default props => {
 
   useEffect(() => {
     getRooms()
+    // eslint-disable-next-line
   }, [])
 
   return <Org list={list} name={localStorage.getItem('orgName')} org_id={id} />

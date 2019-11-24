@@ -1,10 +1,20 @@
 import axios from 'axios'
 import { retrieveData } from '../helpers/storage'
+// import { updateUserSessionTime } from './user'
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL
 
+const onUpdateUserSessionTime = () => {
+  const currentUser = localStorage.getItem('currentUser')
+  if (currentUser) {
+    // const { id } = JSON.parse(currentUser)
+    // updateUserSessionTime(id)
+  }
+}
+
 axios.interceptors.request.use(
   config => {
+    onUpdateUserSessionTime()
     return {
       ...config,
       headers: { ...retrieveData() },

@@ -6,10 +6,6 @@ import { saveData } from '../helpers/storage'
 export default () => {
   const [list, setList] = useState([])
 
-  useEffect(() => {
-    getOrgs()
-  }, [])
-
   const getOrgs = async () => {
     try {
       const response = await getUserOrgs()
@@ -20,5 +16,9 @@ export default () => {
     }
   }
 
-  return <Dashboard orgs={list.map(org => org)} />
+  useEffect(() => {
+    getOrgs()
+  }, [])
+
+  return <Dashboard orgs={list} />
 }
