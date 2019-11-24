@@ -47,7 +47,13 @@ export default () => {
     <>
       <Paper className={classes.mainFeaturedPost}>
         <Grid container>
-          <Grid item sm={12} className={classes.mainFeaturedPostContent}>
+          <Grid
+            item
+            sm={12}
+            xs={12}
+            lg={12}
+            className={classes.mainFeaturedPostContent}
+          >
             <Typography
               component="h1"
               variant="h3"
