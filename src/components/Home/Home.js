@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import {
@@ -38,7 +39,10 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     backgroundColor: 'rgba(0,0,0,.3)',
   },
-  text: { padding: theme.spacing(4, 8, 8, 8) },
+  text: {
+    padding: theme.spacing(4, 8, 8, 8),
+    textAlign: 'left',
+  },
 }))
 
 export default () => {
@@ -72,36 +76,80 @@ export default () => {
       <Grid item sm={8} className={classes.text}>
         <ThemeProvider theme={theme}>
           <Typography variant="h6" color="textSecondary" paragraph>
+            <h3>Prezados participantes, sejam bem-vindos a Room!</h3>
+            Este site é um{' '}
+            <a
+              style={{ color: '#3f51b5', textDecoration: 'none' }}
+              href="https://en.wikipedia.org/wiki/Minimum_viable_product"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MVP
+            </a>{' '}
+            (Produto Mínimo Viável) desenvolvido como parte do trabalho de
+            conclusão do curso de Análise e Desenvolvimento de Sistemas da
+            Faculdade SENAC - Porto Alegre.
+            <br />
+            <br />
             Room é uma plataforma web para pessoas e empresas que trabalham de
             forma remota e carecem de uma comunicação mais aproximada. A
-            aplicação visa promover maior eficiência nas comunicações e
-            interações nos encontros remotos.
+            aplicação visa promover um ambiente virtual propício para melhorar
+            as interações e comunicações nos encontros a distância.
             <br />
             <br />
-            Apesar das vantagens em se trabalhar a distância há dificuldades
-            como problemas de comunicação, colaboração, solidão, motivação, etc.
-            Essas dificuldades podem ter consequências negativas na empresa e/ou
-            seus participantes, tais como: baixa autoestima, diminuição de
+            Apesar das vantagens em se trabalhar a distância, pesquisas apontam
+            que existem dificuldades como: problemas de comunicação,
+            colaboração, solidão, motivação, entre outras. Essas dificuldades
+            podem ter consequências negativas para a empresa e/ou seus
+            participantes, tais como: baixa autoestima, diminuição de
             desempenho, falta de sensação de pertencimento, não se sentir
             ouvido, menor contribuição nos projetos e com as pessoas do
             trabalho, ruídos de comunicação, atrasos em projetos, dificuldades
-            em se manter motivado, não explorar potencialidades dos funcionários
-            por dificuldades de comunicação/expressão, entre outros.
+            em se manter motivado, desconhecimento de potencialidades dos
+            funcionários por carências na comunicação/expressão, entre outros.
             <br />
             <br />
-            Propõe-se, como solução para minimizar os problemas e evitar suas
-            consequências, uma ferramenta de comunicação na qual é possível
-            visualizar os avatares dos colegas em salas virtuais (inspirado na
-            Matrix) através das quais os usuários podem interagir via chat e
-            video-chamadas. Além disso, o sistema conta com um bot (cãozinho
-            Dogo) que busca mediar a comunicação e promover maior integração
-            entre as pessoas.
+            Foi proposto como hipótese de solução para minimizar tais problemas
+            e evitar suas consequências, uma ferramenta de comunicação na qual
+            seja possível visualizar a presença dos avatares dos colegas em
+            salas virtuais (inspirado na{' '}
+            <a
+              style={{ color: '#3f51b5', textDecoration: 'none' }}
+              href="https://github.com/ResultadosDigitais/matrix"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Matrix
+            </a>
+            ) através das quais os usuários podem interagir via chat e
+            vídeo-chamadas. Além disso, futuramente o sistema contará com um bot
+            (cãozinho Dogo) que buscará mediar a comunicação e promover maior
+            integração entre as pessoas.
             <br />
             <br />
-            Como consequência, espera-se que os usuários possam comunicar-se
-            melhor, sintam-se mais a vontade de interagir, experimentem um
-            ambiente virtual mais produtível e agradável e conversem de forma
-            mais conveniente (as salas temáticas contribuem pra isso).
+            Como consequência espera-se que os usuários sintam-se mais à vontade
+            para interagir, melhorar sua comunicação, experimentar um ambiente
+            virtual agradável para interagir e possam conversar forma mais
+            conveniente.
+            <br />
+            <br />
+            Muito obrigado a cada um pela sua participação!
+            <br />
+            <br />
+            Se puder dar seu{' '}
+            <Link
+              to={'/feedback'}
+              style={{ color: '#3f51b5', textDecoration: 'none' }}
+            >
+              feedback
+            </Link>{' '}
+            todaToda sugestão ou crítica construtiva será bem acolhida!
+            <br />
+            <br />
+            Um grande abraço!
+            <br />
+            <br />
+            Rodrigo Avellar de Muniagurria
           </Typography>
         </ThemeProvider>
       </Grid>
