@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Row } from '../templates'
+import { Row, HeroSection } from '../templates'
 
 const StyledMessagesContainer = styled.div``
 
@@ -39,7 +39,13 @@ const StyledFieldArea = styled.div`
   height: 50px;
 `
 
-function Chat({ currentChat, chatMessages, onSendMessage, currentUser }) {
+function Chat({
+  currentChat,
+  currentOrg,
+  chatMessages,
+  onSendMessage,
+  currentUser,
+}) {
   const [message, setMessage] = useState(undefined)
   const { title } = currentChat
 
@@ -52,7 +58,7 @@ function Chat({ currentChat, chatMessages, onSendMessage, currentUser }) {
 
   return (
     <StyledMessagesContainer>
-      <div> Chat - {title} </div>
+      <HeroSection title={title + ' chat'} subtitle={currentOrg} />
       {chatMessages.map(m => (
         <Row>
           <StyledMessage isUser={getUserEmail() === m.user_email}>

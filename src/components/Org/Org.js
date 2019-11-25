@@ -94,6 +94,7 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
         <Chat
           currentUser={store.currentUser}
           chatMessages={chatMessages}
+          currentOrg={name}
           currentChat={currentChat}
           onSendMessage={onSendMessage}
         />
