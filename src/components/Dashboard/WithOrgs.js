@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeroSection, InputFile } from '../templates'
+import { HeroSection } from '../templates'
 import { OrgsGrid } from '.'
 
 export default ({ orgs }) => {
@@ -10,7 +10,7 @@ export default ({ orgs }) => {
         subtitle={'Here you can view all your organizations'}
       />
       <OrgsGrid orgs={orgs} />
-      <InputFile />
+      {/* <InputFile /> */}
     </>
   )
 }
