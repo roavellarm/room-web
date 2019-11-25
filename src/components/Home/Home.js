@@ -48,6 +48,19 @@ const useStyles = makeStyles(theme => ({
 export default () => {
   const classes = useStyles()
 
+  function ExternalLink({ url, content }) {
+    return (
+      <a
+        style={{ color: '#3f51b5', textDecoration: 'none' }}
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {content}
+      </a>
+    )
+  }
+
   const home = (
     <>
       <Paper className={classes.mainFeaturedPost}>
@@ -78,14 +91,10 @@ export default () => {
           <Typography variant="h6" color="textSecondary" paragraph>
             <h3>Prezados participantes, sejam bem-vindos a Room!</h3>
             Este site é um{' '}
-            <a
-              style={{ color: '#3f51b5', textDecoration: 'none' }}
-              href="https://en.wikipedia.org/wiki/Minimum_viable_product"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              MVP
-            </a>{' '}
+            <ExternalLink
+              url="https://en.wikipedia.org/wiki/Minimum_viable_product"
+              content="MVP"
+            />{' '}
             (Produto Mínimo Viável) desenvolvido como parte do trabalho de
             conclusão do curso de Análise e Desenvolvimento de Sistemas da
             Faculdade SENAC - Porto Alegre.
@@ -113,14 +122,10 @@ export default () => {
             e evitar suas consequências, uma ferramenta de comunicação na qual
             seja possível visualizar a presença dos avatares dos colegas em
             salas virtuais (inspirado na{' '}
-            <a
-              style={{ color: '#3f51b5', textDecoration: 'none' }}
-              href="https://github.com/ResultadosDigitais/matrix"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Matrix
-            </a>
+            <ExternalLink
+              url="https://github.com/ResultadosDigitais/matrix"
+              content="Matrix"
+            />
             ) através das quais os usuários podem interagir via chat e
             vídeo-chamadas. Além disso, futuramente o sistema contará com um bot
             (cãozinho Dogo) que buscará mediar a comunicação e promover maior
