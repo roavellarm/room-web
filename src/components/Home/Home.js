@@ -9,6 +9,7 @@ import {
   ThemeProvider,
 } from '@material-ui/core/styles'
 import { Layout } from '../templates'
+import background from '../../assets/images/background.jpg'
 
 let theme = createMuiTheme()
 theme = responsiveFontSizes(theme)
@@ -18,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
-    backgroundImage: 'url(https://source.unsplash.com/random/900x200)',
+    backgroundImage: `url(${background})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',

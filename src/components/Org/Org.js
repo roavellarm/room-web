@@ -7,6 +7,7 @@ import { RoomsGrid, Chat } from '.'
 import { useStore } from '../../core/store'
 // import { enterInRoom } from '../../api/user'
 import { sendMessage, getMessages } from '../../api/chat'
+import { saveData } from '../../helpers/storage'
 
 export default withRouter(({ list, name, org_id, getRooms }) => {
   const { store } = useStore()
@@ -43,6 +44,7 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
     try {
       const response = await getMessages(roomId)
       setChatMesages(response.data)
+      saveData(response.headers)
       scrollToBottom()
       // socket.emit('enterChat', { user_id: userId })
     } catch (error) {
@@ -78,7 +80,8 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
 
   const onSendMessage = async message => {
     try {
-      await sendMessage(currentChat.id, message)
+      const response = await sendMessage(currentChat.id, message)
+      saveData(response.headers)
       await onGetMessages(currentChat.id)
     } catch (error) {
       console.log(error)
