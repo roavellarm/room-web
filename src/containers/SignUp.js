@@ -6,7 +6,7 @@ import { signUp } from '../api/auth'
 import { saveData } from '../helpers/storage'
 
 export default withRouter(({ history }) => {
-  const { setStore } = useStore()
+  const { store, setStore } = useStore()
 
   const [fields, setFields] = useState({})
   const onChangeField = e => {
@@ -18,11 +18,12 @@ export default withRouter(({ history }) => {
   }
 
   function cleanFields() {
-    setFields({ email: '', password: '', passwordConfirmation: '' })
+    setFields({ password: '', passwordConfirmation: '' })
   }
 
   const onSubmit = async () => {
     try {
+      setStore({ isSubmitting: false })
       if (fields.password !== fields.passwordConfirmation) {
         return alert("Password doesn't match")
       }
@@ -31,13 +32,13 @@ export default withRouter(({ history }) => {
       if (response.status === 200) {
         saveData(response.headers)
         alert('Register with success')
-        setStore({ isAuthenticated: true })
-
+        setStore({ isSubmitting: false, isAuthenticated: true })
         // Clean user data after register
         cleanFields()
         history.push('/dashboard')
       }
     } catch (error) {
+      setStore({ isSubmitting: false })
       console.log(error)
       // cleanFields()
       alert('Something went wrong...')
@@ -50,6 +51,7 @@ export default withRouter(({ history }) => {
       onChangeField={onChangeField}
       onSubmit={onSubmit}
       onKeyDown={onKeyDown}
+      isSubmitting={store.isSubmitting}
     />
   )
 })

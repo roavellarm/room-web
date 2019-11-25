@@ -1,4 +1,5 @@
 import React from 'react'
+import styled, { keyframes } from 'styled-components'
 import { makeStyles, Typography, Container, Grid } from '@material-ui/core'
 import { Footer } from '../templates'
 
@@ -15,11 +16,25 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+const animation = keyframes`
+  0% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`
+
+const StyledWrapper = styled.div`
+  animation: ${animation} 1s linear;
+`
+
 export default ({ title, children, content }) => {
   const classes = useStyles()
 
   return (
-    <>
+    <StyledWrapper>
       {title != null && (
         <Container align="center" maxWidth="sm" className={classes.heroContent}>
           <Typography component="h2" variant="h4" color="textPrimary">
@@ -37,6 +52,6 @@ export default ({ title, children, content }) => {
         </Grid>
       )}
       {<Footer />}
-    </>
+    </StyledWrapper>
   )
 }

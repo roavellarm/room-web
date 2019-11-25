@@ -2,44 +2,69 @@ import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Layout, Button, HeroSection } from '../templates'
 import { Grid } from '@material-ui/core'
-import SocketIOClient from 'socket.io-client'
+// import SocketIOClient from 'socket.io-client'
 import { RoomsGrid, Chat } from '.'
 import { useStore } from '../../core/store'
-import { enterInRoom } from '../../api/user'
-import { getMessages } from '../../api/chat'
+// import { enterInRoom } from '../../api/user'
+import { sendMessage, getMessages } from '../../api/chat'
 
-export default withRouter(({ list, name, org_id }) => {
-  const [socket, setSocket] = useState(undefined)
+export default withRouter(({ list, name, org_id, getRooms }) => {
+  const { store } = useStore()
+  // const [socket, setSocket] = useState(undefined)
   const [currentChat, setCurrentChat] = useState(false)
   const [chatMessages, setChatMesages] = useState([])
-  const { store } = useStore()
 
-  const { userId } = store
+  // const manipulateSocket = () => {
+  // socket.on('enterRoom', listener => {
+  //   console.log(listener)
+  // })
+  // socket.on('enterChat', listener => {
+  //   console.log(listener)
+  // })
+  // }
 
-  const manipulateSocket = () => {
-    // socket.on('enterRoom', listener => {
-    //   console.log(listener)
-    // })
-    // socket.on('enterChat', listener => {
-    //   console.log(listener)
-    // })
+  // useEffect(() => {
+  //   if (!socket) {
+  //     const url = process.env.REACT_APP_API_URL
+  //     const socketClient = new SocketIOClient(url)
+  //     setSocket(socketClient)
+  //   } else {
+  //     manipulateSocket()
+  //   }
+  // }, [socket])
+
+  const onGetRoomsInfo = async orgId => {
+    getRooms()
+  }
+
+  const scrollToBottom = () => window.scrollTo(0, document.body.scrollHeight)
+
+  const onGetMessages = async roomId => {
+    try {
+      const response = await getMessages(roomId)
+      setChatMesages(response.data)
+      scrollToBottom()
+      // socket.emit('enterChat', { user_id: userId })
+    } catch (error) {
+      // alert('Erro ao entrar no chat')
+    }
   }
 
   useEffect(() => {
-    if (!socket) {
-      const url = process.env.REACT_APP_API_URL
-      const socketClient = new SocketIOClient(url)
-      setSocket(socketClient)
-    } else {
-      manipulateSocket()
+    if (currentChat.id) {
+      onGetMessages(currentChat.id)
     }
-  }, [socket])
+  }, [])
+
+  useEffect(() => {
+    onGetRoomsInfo(org_id)
+  }, [])
 
   const onEnterInRoom = async roomId => {
     try {
-      // const { userId } = store
-      // const response = await enterInRoom(userId, roomId)
+      // const response = await enterInRoom(roomId)
       alert(`Entrando na sala ${roomId}`)
+      onGetRoomsInfo()
       // socket.emit('enterRoom', { user_id: userId })
     } catch (error) {
       alert('Erro ao entrar na sala')
@@ -47,39 +72,14 @@ export default withRouter(({ list, name, org_id }) => {
   }
 
   const onEnterInChat = async ({ id, title }) => {
-    try {
-      // const response = await getMessages(userId, id)
-      const response = {
-        messages: [
-          {
-            user_id: 3,
-            user_name: 'Rodrigo',
-            message: 'batata batata batata batata batata batata ',
-          },
-          {
-            user_id: 2,
-            user_name: 'Gabriel',
-            message: 'batata 2',
-          },
-          {
-            user_id: 2,
-            user_name: 'Gabriel',
-            message: 'batata 3',
-          },
-        ],
-      }
-      setChatMesages(response.messages)
-      setCurrentChat({ id, title })
-      // socket.emit('enterChat', { user_id: userId })
-    } catch (error) {
-      alert('Erro ao entrar no chat')
-    }
+    await onGetMessages(id)
+    setCurrentChat({ id, title })
   }
 
   const onSendMessage = async message => {
     try {
-      alert(message)
-      // const response = await sendMessage(userId, message)
+      await sendMessage(currentChat.id, message)
+      await onGetMessages(currentChat.id)
     } catch (error) {
       console.log(error)
     }
@@ -89,9 +89,9 @@ export default withRouter(({ list, name, org_id }) => {
     <Layout>
       {!!currentChat ? (
         <Chat
+          currentUser={store.currentUser}
           chatMessages={chatMessages}
           currentChat={currentChat}
-          userId={userId}
           onSendMessage={onSendMessage}
         />
       ) : (

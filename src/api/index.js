@@ -22,9 +22,10 @@ axios.interceptors.request.use(
   },
 
   error => {
-    if (error.response.status === 401) {
+    const { status } = error.response
+    if (status === 401) {
       localStorage.clear()
-      // window.location = '/'
+      window.location = '/'
     } else {
       return Promise.reject(error)
     }

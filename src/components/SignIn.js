@@ -44,7 +44,8 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function SignIn({ onChangeField, onKeyDown, onSubmit, fields }) {
+export default function SignIn(props) {
+  const { onChangeField, onKeyDown, onSubmit, fields, isSubmitting } = props
   const classes = useStyles()
 
   return (
@@ -92,7 +93,9 @@ export default function SignIn({ onChangeField, onKeyDown, onSubmit, fields }) {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             /> */}
-            <Button onClick={() => onSubmit()}>Sign In</Button>
+            <Button disabled={isSubmitting} onClick={() => onSubmit()}>
+              {isSubmitting ? 'Submitting...' : 'Sign In'}
+            </Button>
             <Grid container>
               {/* <Grid item xs>
                 <Link href="#" variant="body2">

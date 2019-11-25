@@ -1,15 +1,16 @@
 import React, { useState, createContext, useContext } from 'react'
 
-const getCurrentUserId = () => {
+const getCurrentUser = () => {
   const currentUser = localStorage.getItem('currentUser')
-  if (currentUser) return JSON.parse(currentUser).id
+  if (currentUser) return JSON.parse(currentUser)
   return undefined
 }
 
 const initialState = {
   isLoading: false,
   isAuthenticated: !!localStorage.getItem('isAuthenticated') ? true : false,
-  userId: getCurrentUserId(),
+  currentUser: getCurrentUser(),
+  isSubmitting: false,
 }
 
 export const Context = createContext({})

@@ -23,5 +23,12 @@ export default props => {
     // eslint-disable-next-line
   }, [])
 
-  return <Org list={list} name={localStorage.getItem('orgName')} org_id={id} />
+  return (
+    <Org
+      getRooms={getRooms}
+      list={list}
+      name={localStorage.getItem('orgName')}
+      org_id={id}
+    />
+  )
 }
