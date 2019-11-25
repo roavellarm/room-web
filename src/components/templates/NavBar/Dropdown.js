@@ -1,23 +1,19 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
-import AccountCircle from '@material-ui/icons/AccountCircle'
 import Menu from '@material-ui/core/Menu'
 import { MenuItem, IconButton } from '@material-ui/core'
-import { useStore } from '../../../core/store'
+import AccountCircle from '@material-ui/icons/AccountCircle'
+import MoodIcon from '@material-ui/icons/Mood'
 
-export default withRouter(({ history }) => {
-  const { setStore } = useStore()
-  const onLogout = () => {
-    localStorage.removeItem('isAuthenticated')
-    localStorage.removeItem('database')
-    localStorage.removeItem('currentUser')
-    setStore({ isAuthenticated: false })
-    history.push('/')
-  }
+export default ({ dropdownItems, icon }) => {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
   const handleMenu = e => setAnchorEl(e.currentTarget)
   const handleClose = () => setAnchorEl(null)
+
+  const getIcon = () => {
+    if (icon === 'Mood') return <MoodIcon />
+    return <AccountCircle />
+  }
 
   return (
     <>
@@ -28,7 +24,7 @@ export default withRouter(({ history }) => {
           onClick={handleMenu}
           color="inherit"
         >
-          <AccountCircle />
+          {getIcon()}
         </IconButton>
         <Menu
           id="menu-appbar"
@@ -45,12 +41,22 @@ export default withRouter(({ history }) => {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem color="inherit" onClick={() => onLogout()}>
+          {dropdownItems.map(i => (
+            <MenuItem
+              selected={i.selected}
+              onClick={() => {
+                handleClose()
+                i.onClick()
+              }}
+            >
+              {i.text}
+            </MenuItem>
+          ))}
+          {/* <MenuItem color="inherit" onClick={() => onLogout()}>
             Logout
-          </MenuItem>
+          </MenuItem> */}
         </Menu>
       </div>
     </>
   )
-})
+}

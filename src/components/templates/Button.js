@@ -9,12 +9,13 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default ({ children, onClick }) => {
+export default ({ children, onClick, ...props }) => {
   const classes = useStyles()
 
   return (
     <div className={classes.buttonStyle}>
       <Button
+        {...props}
         fullWidth
         type="submit"
         variant="contained"

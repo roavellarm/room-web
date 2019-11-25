@@ -36,7 +36,8 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function SignUp({ fields, onChangeField, onSubmit, onKeyDown }) {
+export default function SignUp(props) {
+  const { fields, onChangeField, onSubmit, onKeyDown, isSubmitting } = props
   const classes = useStyles()
   const list = [
     {
@@ -100,7 +101,9 @@ export default function SignUp({ fields, onChangeField, onSubmit, onKeyDown }) {
               </Grid>
             ))}
             <Grid item xs={12}>
-              <Button onClick={() => onSubmit()}>Sign Up</Button>
+              <Button disabled={isSubmitting} onClick={() => onSubmit()}>
+                {isSubmitting ? 'Submitting...' : 'Sign Up'}
+              </Button>
             </Grid>
             <Grid item xs={12}>
               <Link href="/sign-in" variant="body2">

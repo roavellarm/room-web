@@ -7,7 +7,7 @@ import { saveData } from '../helpers/storage'
 import { saveUser } from '../helpers/handleUser'
 
 export default withRouter(({ history }) => {
-  const { setStore } = useStore()
+  const { store, setStore } = useStore()
 
   const [fields, setFields] = useState({ email: '', password: '' })
   function onChangeField(e) {
@@ -19,20 +19,22 @@ export default withRouter(({ history }) => {
   }
 
   const onSubmit = async () => {
-    const cleanFields = () => setFields({ email: '', password: '' })
+    const cleanFields = () => setFields({ password: '' })
 
     try {
+      setStore({ isSubmitting: true })
       const response = await signIn(fields)
       if (response.status === 200) {
-        setStore({ isAuthenticated: true })
         localStorage.setItem('isAuthenticated', true)
         saveData(response.headers)
         saveUser(response.data.data)
+        setStore({ isSubmitting: false, isAuthenticated: true, currentUser: response.data.data })
         // Clean user data from the fields after submit
         cleanFields()
         history.push('/')
       }
     } catch (error) {
+      setStore({ isSubmitting: false })
       console.log(error)
       // Clean password field if something went wrong
       cleanFields()
@@ -45,6 +47,7 @@ export default withRouter(({ history }) => {
       onChangeField={onChangeField}
       onSubmit={onSubmit}
       onKeyDown={onKeyDown}
+      isSubmitting={store.isSubmitting}
     />
   )
 })

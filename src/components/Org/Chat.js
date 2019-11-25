@@ -39,7 +39,7 @@ const StyledFieldArea = styled.div`
   height: 50px;
 `
 
-function Chat({ currentChat, chatMessages, userId, onSendMessage }) {
+function Chat({ currentChat, chatMessages, onSendMessage, currentUser }) {
   const [message, setMessage] = useState(undefined)
   const { title } = currentChat
 
@@ -48,12 +48,14 @@ function Chat({ currentChat, chatMessages, userId, onSendMessage }) {
     setMessage('')
   }
 
+  const getUserEmail = () => currentUser.email
+
   return (
     <StyledMessagesContainer>
       <div> Chat - {title} </div>
       {chatMessages.map(m => (
         <Row>
-          <StyledMessage isUser={userId === m.user_id}>
+          <StyledMessage isUser={getUserEmail() === m.user_email}>
             <strong>
               <div>{m.user_name}</div>
             </strong>
