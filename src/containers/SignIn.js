@@ -28,10 +28,14 @@ export default withRouter(({ history }) => {
         localStorage.setItem('isAuthenticated', true)
         saveData(response.headers)
         saveUser(response.data.data)
-        setStore({ isSubmitting: false, isAuthenticated: true, currentUser: response.data.data })
+        setStore({
+          isSubmitting: false,
+          isAuthenticated: true,
+          currentUser: response.data.data,
+        })
         // Clean user data from the fields after submit
         cleanFields()
-        history.push('/')
+        history.push('/dashboard')
       }
     } catch (error) {
       setStore({ isSubmitting: false })
