@@ -2,6 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+import FavoriteIcon from '@material-ui/icons/Favorite'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import {
@@ -17,18 +18,16 @@ theme = responsiveFontSizes(theme)
 
 const useStyles = makeStyles(theme => ({
   mainFeaturedPost: {
-    backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(1),
     backgroundImage: `url(${background})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
   },
   mainFeaturedPostContent: {
     padding: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(6),
+      padding: theme.spacing(14),
       paddingRight: 0,
     },
   },
@@ -95,9 +94,10 @@ export default () => {
               url="https://en.wikipedia.org/wiki/Minimum_viable_product"
               content="MVP"
             />{' '}
-            (Produto Mínimo Viável) desenvolvido como parte do trabalho de
-            conclusão do curso de Análise e Desenvolvimento de Sistemas da
-            Faculdade SENAC - Porto Alegre.
+            (Produto Mínimo Viável) desenvolvido com{' '}
+            <FavoriteIcon color="error" /> como parte do trabalho de conclusão
+            do curso de Análise e Desenvolvimento de Sistemas da Faculdade SENAC
+            - Porto Alegre.
             <br />
             <br />
             Room é uma plataforma web para pessoas e empresas que trabalham de
@@ -141,17 +141,17 @@ export default () => {
             Muito obrigado a cada um pela sua participação!
             <br />
             <br />
-            Se puder dar seu{' '}
+            Agradeço se puderem dar seu{' '}
             <Link
               to={'/feedback'}
               style={{ color: '#3f51b5', textDecoration: 'none' }}
             >
               feedback
-            </Link>{' '}
-            todaToda sugestão ou crítica construtiva será bem acolhida!
+            </Link>
+            . Toda sugestão ou crítica construtiva será bem acolhida!
             <br />
             <br />
-            Um grande abraço!
+            Abraço,
             <br />
             <br />
             Rodrigo Avellar de Muniagurria
