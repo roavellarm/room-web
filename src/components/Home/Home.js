@@ -18,18 +18,16 @@ theme = responsiveFontSizes(theme)
 
 const useStyles = makeStyles(theme => ({
   mainFeaturedPost: {
-    backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(1),
     backgroundImage: `url(${background})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
   },
   mainFeaturedPostContent: {
     padding: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(6),
+      padding: theme.spacing(14),
       paddingRight: 0,
     },
   },
