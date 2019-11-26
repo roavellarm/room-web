@@ -38,7 +38,7 @@ export default ({ fields, onChangeField, onSubmit }) => {
       onSubmit={onSubmit}
       list={feedbacks}
       sectionTitle={'Feedback'}
-      sectionSubtitle={'Please, share your experience using this app'}
+      sectionSubtitle={'Please, share your experience using this MVP website'}
       buttonTitle="Send feedback"
     />
   )

@@ -33,6 +33,7 @@ export default ({ isAuthenticated }) => {
         />
         <Route path="/org/:id" children={props => <Org {...props} />} />
         <Route path="/call/:token" children={props => <Call {...props} />} />
+        <Route path="*" component={props => <Unauthorized {...props} />} />
       </Switch>
     )
   }
