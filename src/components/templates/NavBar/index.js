@@ -1,12 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link, withRouter } from 'react-router-dom'
+import DashboardIcon from '@material-ui/icons/Dashboard'
+import FeedbackIcon from '@material-ui/icons/Feedback'
 import {
   AppBar,
   Toolbar,
   Typography,
   Button,
   makeStyles,
+  Tooltip,
+  IconButton,
 } from '@material-ui/core'
 import Dropdown from './Dropdown'
 // import IconButton from './IconButton'
@@ -63,11 +67,19 @@ export default withRouter(({ isAuthenticated, history }) => {
           </Typography>
           {isAuthenticated && (
             <StyledLink to="/dashboard">
-              <Button color="inherit">Dashboard</Button>
+              <IconButton color="inherit" aria-label="menu">
+                <Tooltip title="Dashboard">
+                  <DashboardIcon />
+                </Tooltip>
+              </IconButton>
             </StyledLink>
           )}
           <StyledLink to="/feedback">
-            <Button color="inherit">Feedback</Button>
+            <IconButton color="inherit" aria-label="menu">
+              <Tooltip title="Feedback">
+                <FeedbackIcon />
+              </Tooltip>
+            </IconButton>
           </StyledLink>
 
           {!isAuthenticated && (
@@ -83,17 +95,21 @@ export default withRouter(({ isAuthenticated, history }) => {
           )}
           {isAuthenticated && (
             <>
-              <Dropdown
-                icon="Mood"
-                dropdownItems={moods.map(m => ({
-                  text: m,
-                  selected:
-                    store &&
-                    store.currentUser &&
-                    store.currentUser.mood === String(m).toLowerCase(),
-                  onClick: () => onChangeMood(m),
-                }))}
-              />
+              <Tooltip title="Set your mood">
+                <div>
+                  <Dropdown
+                    icon="Mood"
+                    dropdownItems={moods.map(m => ({
+                      text: m,
+                      selected:
+                        store &&
+                        store.currentUser &&
+                        store.currentUser.mood === String(m).toLowerCase(),
+                      onClick: () => onChangeMood(m),
+                    }))}
+                  />
+                </div>
+              </Tooltip>
               <Dropdown
                 dropdownItems={[
                   {

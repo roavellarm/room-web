@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
+import VideoCallIcon from '@material-ui/icons/VideoCall'
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom'
+import ChatBubbleIcon from '@material-ui/icons/ChatBubble'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, Tooltip, IconButton } from '@material-ui/core'
 import { UserIcon } from '../templates'
 
 const useStyles = makeStyles(theme => ({
@@ -59,29 +61,38 @@ export default ({ list, onEnterInRoom, onEnterInChat }) => {
                   </Grid>
                 </Grid>
               </CardMedia>
+
               <CardActions>
-                <Button
+                <IconButton
                   onClick={() => onEnterInRoom(room.id)}
-                  size="small"
-                  color="primary"
+                  color="inherit"
+                  aria-label="menu"
                 >
-                  Enter room
-                </Button>
+                  <Tooltip title="Enter room">
+                    <MeetingRoomIcon color={'default'} />
+                  </Tooltip>
+                </IconButton>
+
                 <Link
                   to={`/call/${room.token}`}
                   style={{ textDecoration: 'none' }}
                 >
-                  <Button size="small" color="primary">
-                    Meeting
-                  </Button>
+                  <IconButton color="inherit" aria-label="menu">
+                    <Tooltip title="Video call meeting">
+                      <VideoCallIcon color={'secondary'} />
+                    </Tooltip>
+                  </IconButton>
                 </Link>
-                <Button
-                  size="small"
+
+                <IconButton
                   onClick={() => onEnterInChat(room)}
-                  color="primary"
+                  color="inherit"
+                  aria-label="menu"
                 >
-                  Chat
-                </Button>
+                  <Tooltip title="Chat">
+                    <ChatBubbleIcon color={'primary'} />
+                  </Tooltip>
+                </IconButton>
               </CardActions>
             </Card>
           </Grid>

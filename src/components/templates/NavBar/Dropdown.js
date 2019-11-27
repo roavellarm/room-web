@@ -52,9 +52,6 @@ export default ({ dropdownItems, icon }) => {
               {i.text}
             </MenuItem>
           ))}
-          {/* <MenuItem color="inherit" onClick={() => onLogout()}>
-            Logout
-          </MenuItem> */}
         </Menu>
       </div>
     </>

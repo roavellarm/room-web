@@ -17,7 +17,7 @@ export default () => {
 
   const content = (
     <>
-      <HeroSection title="Unautorized" />
+      <HeroSection title="Unauthorized" />
       <Grid item xs={12} sm={10} md={7} lg={6}>
         <img alt="unauthorized" src={dogo} className={classes.img} />
       </Grid>
