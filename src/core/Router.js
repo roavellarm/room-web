@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import {
   Home,
   Feedback,
+  UserProfile,
   Unauthorized,
   SignIn,
   SignUp,
@@ -19,6 +20,10 @@ export default ({ isAuthenticated }) => {
       <Switch>
         <Route exact path="/" component={props => <Home {...props} />} />
         <Route path="/feedback" component={props => <Feedback {...props} />} />
+        <Route
+          path="/user-profile"
+          component={props => <UserProfile {...props} />}
+        />
         <Route
           path="/dashboard"
           component={props => <Dashboard {...props} />}
