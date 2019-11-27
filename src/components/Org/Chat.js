@@ -41,6 +41,7 @@ const StyledFieldArea = styled.div`
 
 function Chat({
   currentChat,
+  setCurrentChat,
   currentOrg,
   chatMessages,
   onSendMessage,
@@ -58,7 +59,9 @@ function Chat({
 
   return (
     <StyledMessagesContainer>
-      <HeroSection title={title + ' chat'} subtitle={currentOrg} />
+      <div onClick={() => setCurrentChat(undefined)}>
+        <HeroSection title={title + ' chat'} subtitle={currentOrg} />
+      </div>
       {chatMessages.map(m => (
         <Row>
           <StyledMessage isUser={getUserEmail() === m.user_email}>

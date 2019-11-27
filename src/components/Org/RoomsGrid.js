@@ -28,6 +28,9 @@ const useStyles = makeStyles(theme => ({
   roomContent: {
     flexGrow: 1,
   },
+  avatar: {
+    padding: '20px',
+  },
 }))
 
 export default ({ list, onEnterInRoom, onEnterInChat }) => {
@@ -50,8 +53,8 @@ export default ({ list, onEnterInRoom, onEnterInChat }) => {
                 image={room.background_image}
                 title="Image title"
               >
-                <Grid container spacing={2}>
-                  <Grid item>
+                <Grid container>
+                  <Grid item className={classes.avatar}>
                     <UserIcon status="onCall" />
                   </Grid>
                 </Grid>
