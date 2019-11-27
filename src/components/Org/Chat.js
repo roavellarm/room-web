@@ -39,6 +39,12 @@ const StyledFieldArea = styled.div`
   height: 50px;
 `
 
+const HoverText = styled.div`
+  :hover {
+    cursor: pointer;
+  }
+`
+
 function Chat({
   currentChat,
   setCurrentChat,
@@ -59,9 +65,9 @@ function Chat({
 
   return (
     <StyledMessagesContainer>
-      <div onClick={() => setCurrentChat(undefined)}>
+      <HoverText onClick={() => setCurrentChat(undefined)}>
         <HeroSection title={title + ' chat'} subtitle={currentOrg} />
-      </div>
+      </HoverText>
       {chatMessages.map(m => (
         <Row>
           <StyledMessage isUser={getUserEmail() === m.user_email}>
