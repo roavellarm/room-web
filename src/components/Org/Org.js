@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Link, withRouter } from 'react-router-dom'
-import { Layout, Button, HeroSection } from '../templates'
-import { Grid } from '@material-ui/core'
+import { withRouter } from 'react-router-dom'
+import { Layout, HeroSection } from '../templates'
 // import SocketIOClient from 'socket.io-client'
-import { RoomsGrid, Chat } from '.'
+import { RoomsGrid, Chat, LinksBar } from '.'
 import { useStore } from '../../core/store'
 // import { enterInRoom } from '../../api/user'
 import { sendMessage, getMessages } from '../../api/chat'
@@ -52,9 +51,15 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
     }
   }
 
+  // useEffect(() => {
+  //   if (currentChat.id) {
+  //     onGetMessages(currentChat.id)
+  //   }
+  // }, [])
+
   useEffect(() => {
     if (currentChat.id) {
-      onGetMessages(currentChat.id)
+      setInterval(onGetMessages(currentChat.id), 5000)
     }
   }, [])
 
@@ -96,6 +101,7 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
           chatMessages={chatMessages}
           currentOrg={name}
           currentChat={currentChat}
+          setCurrentChat={setCurrentChat}
           onSendMessage={onSendMessage}
         />
       ) : (
@@ -106,14 +112,7 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
             onEnterInChat={onEnterInChat}
             list={list}
           />
-          <Grid container>
-            <Link
-              to={`/create-room/${org_id}`}
-              style={{ textDecoration: 'none' }}
-            >
-              <Button>Create new room</Button>
-            </Link>
-          </Grid>
+          <LinksBar org_id={org_id} />
         </>
       )}
     </Layout>
