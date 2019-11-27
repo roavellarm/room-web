@@ -7,4 +7,5 @@ export const updateUserSessionTime = () =>
 
 export const enterInRoom = room_id => axios.put(`/room_access`, { room_id })
 
-export const updateMood = mood => axios.put(`${base}/change_mood`, { mood })
+export const updateUserInfo = (userId, data) =>
+  axios.put(`${base}/${userId}`, data)

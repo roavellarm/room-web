@@ -11,7 +11,7 @@ import {
 import Dropdown from './Dropdown'
 // import IconButton from './IconButton'
 import { useStore } from '../../../core/store'
-import { updateMood } from '../../../api/user'
+import { updateUserInfo } from '../../../api/user'
 
 const StyledLink = styled(Link)`
   color: white;
@@ -32,7 +32,7 @@ export default withRouter(({ isAuthenticated, history }) => {
   const onChangeMood = async mood => {
     try {
       const currentMood = String(mood).toLocaleLowerCase()
-      await updateMood(currentMood)
+      await updateUserInfo(currentMood)
       alert(`Mood changed to ${mood}`)
     } catch (error) {
       console.log(error)
@@ -96,7 +96,10 @@ export default withRouter(({ isAuthenticated, history }) => {
               />
               <Dropdown
                 dropdownItems={[
-                  { text: 'Profile', onClick: () => alert('oi') },
+                  {
+                    text: 'Profile',
+                    onClick: () => history.push('/user-profile'),
+                  },
                   { text: 'Logout', onClick: () => onLogout() },
                 ]}
               />
