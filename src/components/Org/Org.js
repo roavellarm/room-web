@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Layout, HeroSection } from '../templates'
 // import SocketIOClient from 'socket.io-client'
-import { RoomsGrid, Chat, LinksBar } from '.'
+import { RoomsGrid, Chat, LinksBar, WithoutRoom } from '.'
 import { useStore } from '../../core/store'
 // import { enterInRoom } from '../../api/user'
 import { sendMessage, getMessages } from '../../api/chat'
@@ -107,11 +107,15 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
       ) : (
         <>
           <HeroSection title={name} />
-          <RoomsGrid
-            onEnterInRoom={onEnterInRoom}
-            onEnterInChat={onEnterInChat}
-            list={list}
-          />
+          {!list.length ? (
+            <WithoutRoom orgName={name} />
+          ) : (
+            <RoomsGrid
+              onEnterInRoom={onEnterInRoom}
+              onEnterInChat={onEnterInChat}
+              list={list}
+            />
+          )}
           <LinksBar org_id={org_id} />
         </>
       )}
