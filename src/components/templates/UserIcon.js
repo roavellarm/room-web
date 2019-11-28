@@ -1,6 +1,7 @@
 import React from 'react'
+import Avatar from '../templates/Avatar'
 
-export default ({ status }) => {
+export default ({ status, image }) => {
   const statusType = {
     onCall: 'onCall',
     available: 'available',
@@ -17,5 +18,5 @@ export default ({ status }) => {
       return require('../../assets/images/icons/busy.png')
   }
 
-  return <img alt="icon" height="55px" src={getIcon()} />
+  return <Avatar name="icon" img={image} />
 }
