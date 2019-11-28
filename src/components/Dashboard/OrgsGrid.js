@@ -11,6 +11,7 @@ import {
   Container,
   makeStyles,
 } from '@material-ui/core'
+import { useStore } from '../../core/store'
 
 const useStyles = makeStyles(theme => ({
   orgGrid: {
@@ -33,6 +34,7 @@ const useStyles = makeStyles(theme => ({
 
 export default ({ orgs }) => {
   const classes = useStyles()
+  const { setStore } = useStore()
 
   return (
     <Container className={classes.orgGrid} maxWidth="md">
@@ -52,7 +54,11 @@ export default ({ orgs }) => {
                 <Typography>{org.description}</Typography>
               </CardContent>
               <CardActions>
-                <Link to={`/org/${org.id}`} style={{ textDecoration: 'none' }}>
+                <Link
+                  to={`/org/${org.id}`}
+                  onClick={() => setStore({ currentOrgName: org.name })}
+                  style={{ textDecoration: 'none' }}
+                >
                   <Button size="small" color="primary">
                     Enter org
                   </Button>
