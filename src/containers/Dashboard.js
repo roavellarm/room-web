@@ -18,6 +18,7 @@ export default () => {
 
   useEffect(() => {
     getOrgs()
+    // eslint-disable-next-line
   }, [])
 
   return <Dashboard orgs={list} />
