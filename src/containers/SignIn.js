@@ -19,7 +19,7 @@ export default withRouter(({ history }) => {
   }
 
   const onSubmit = async () => {
-    const cleanFields = () => setFields({ password: '' })
+    const cleanFields = () => setFields({ ...fields, password: '' })
 
     try {
       setStore({ isSubmitting: true })
@@ -34,7 +34,6 @@ export default withRouter(({ history }) => {
           currentUser: response.data.data,
         })
         // Clean user data from the fields after submit
-        cleanFields()
         history.push('/dashboard')
       }
     } catch (error) {
