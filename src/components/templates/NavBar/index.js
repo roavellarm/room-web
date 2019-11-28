@@ -14,7 +14,7 @@ import {
 } from '@material-ui/core'
 import Dropdown from './Dropdown'
 import { useStore } from '../../../core/store'
-import { updateUserInfo } from '../../../api/user'
+import { updateUserInfo, enterInRoom } from '../../../api/user'
 
 const StyledLink = styled(Link)`
   color: white;
@@ -43,6 +43,7 @@ export default withRouter(({ isAuthenticated, history }) => {
   }
 
   const onLogout = () => {
+    enterInRoom(null)
     localStorage.removeItem('isAuthenticated')
     localStorage.removeItem('database')
     localStorage.removeItem('currentUser')
