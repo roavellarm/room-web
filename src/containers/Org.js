@@ -20,7 +20,7 @@ export default props => {
 
   useEffect(() => {
     getRooms()
-    setInterval(getRooms, 5000)
+    setInterval(getRooms, 2000)
     // eslint-disable-next-line
   }, [])
 

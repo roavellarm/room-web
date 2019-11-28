@@ -14,7 +14,6 @@ export default withRouter(({ history, match }) => {
   }
 
   const onSubmit = async () => {
-    debugger
     try {
       const response = await addNewMember(org_id, fields)
       if (response.status === 201) {
