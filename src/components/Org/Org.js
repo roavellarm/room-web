@@ -4,7 +4,7 @@ import { Layout, HeroSection } from '../templates'
 // import SocketIOClient from 'socket.io-client'
 import { RoomsGrid, Chat, LinksBar, WithoutRoom } from '.'
 import { useStore } from '../../core/store'
-// import { enterInRoom } from '../../api/user'
+import { enterInRoom } from '../../api/user'
 import { sendMessage, getMessages } from '../../api/chat'
 import { saveData } from '../../helpers/storage'
 
@@ -47,30 +47,26 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
       scrollToBottom()
       // socket.emit('enterChat', { user_id: userId })
     } catch (error) {
-      // alert('Erro ao entrar no chat')
+      alert('Erro ao entrar no chat')
     }
   }
-
-  // useEffect(() => {
-  //   if (currentChat.id) {
-  //     onGetMessages(currentChat.id)
-  //   }
-  // }, [])
 
   useEffect(() => {
     if (currentChat.id) {
       setInterval(onGetMessages(currentChat.id), 5000)
     }
+    // eslint-disable-next-line
   }, [])
 
   useEffect(() => {
     onGetRoomsInfo(org_id)
+    // eslint-disable-next-line
   }, [])
 
   const onEnterInRoom = async roomId => {
     try {
-      // const response = await enterInRoom(roomId)
-      alert(`Entrando na sala ${roomId}`)
+      const response = await enterInRoom(roomId)
+      saveData(response.headers)
       onGetRoomsInfo()
       // socket.emit('enterRoom', { user_id: userId })
     } catch (error) {
