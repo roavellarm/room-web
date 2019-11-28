@@ -25,13 +25,8 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   roomMedia: {
-    paddingBottom: '50%',
-  },
-  roomContent: {
     flexGrow: 1,
-  },
-  avatar: {
-    padding: '20px',
+    paddingBottom: '50%',
   },
 }))
 
@@ -44,7 +39,7 @@ export default ({ list, onEnterInRoom, onEnterInChat }) => {
         {list.map(room => (
           <Grid item key={room.id} xs={12} sm={6} md={4}>
             <Card className={classes.roomCard}>
-              <CardContent className={classes.roomContent}>
+              <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
                   {room.title}
                 </Typography>
@@ -56,9 +51,11 @@ export default ({ list, onEnterInRoom, onEnterInChat }) => {
                 title="Image title"
               >
                 <Grid container>
-                  <Grid item className={classes.avatar}>
-                    <UserIcon status="onCall" />
-                  </Grid>
+                  {room.online_members.map(member => (
+                    <Grid key={`${room.id}-${member.id}`} item>
+                      <UserIcon status="onCall" image={member.image} />
+                    </Grid>
+                  ))}
                 </Grid>
               </CardMedia>
 
