@@ -9,6 +9,7 @@ export default withRouter(({ history }) => {
   const { store, setStore } = useStore()
 
   const [fields, setFields] = useState({})
+
   const onChangeField = e => {
     setFields({ ...fields, [e.target.name]: e.target.value })
   }
@@ -17,9 +18,8 @@ export default withRouter(({ history }) => {
     if (keyCode === 13) return onSubmit()
   }
 
-  function cleanFields() {
-    setFields({ password: '', passwordConfirmation: '' })
-  }
+  const cleanFields = () =>
+    setFields({ ...fields, password: '', passwordConfirmation: '' })
 
   const onSubmit = async () => {
     try {
@@ -33,14 +33,12 @@ export default withRouter(({ history }) => {
         saveData(response.headers)
         alert('Register with success')
         setStore({ isSubmitting: false, isAuthenticated: true })
-        // Clean user data after register
-        cleanFields()
         history.push('/dashboard')
       }
     } catch (error) {
       setStore({ isSubmitting: false })
       console.log(error)
-      // cleanFields()
+      cleanFields()
       alert('Something went wrong...')
     }
   }

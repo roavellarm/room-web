@@ -30,6 +30,8 @@ export default ({ fields, onChangeField, onSubmit }) => {
       name: 'mood',
       label: 'Current mood',
       field: fields.mood,
+      type: 'select',
+      options: [{ value: 'sad', text: 'Sad'}]
     },
   ]
 

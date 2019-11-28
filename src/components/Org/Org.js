@@ -52,8 +52,13 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
   }
 
   useEffect(() => {
-    if (currentChat.id) {
-      setInterval(onGetMessages(currentChat.id), 2000)
+    let interval
+    if (currentChat) {
+      interval = setInterval(onGetMessages(currentChat.id), 5000)
+    }
+
+    return () => {
+      clearInterval(interval)
     }
     // eslint-disable-next-line
   }, [])
