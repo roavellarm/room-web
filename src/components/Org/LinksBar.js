@@ -45,8 +45,8 @@ export default ({ org_id }) => {
         </Link>
       </Grid>
       <Grid item>
-        <Link to={'/invite-members'} className={classes.links}>
-          <Tooltip title="Invite members to participate">
+        <Link to={`/add-member/${org_id}`} className={classes.links}>
+          <Tooltip title="Add a member to participate">
             <Avatar color="primary" className={classes.avatar}>
               <ShareIcon />
             </Avatar>
