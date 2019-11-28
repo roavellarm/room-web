@@ -13,7 +13,6 @@ import {
   IconButton,
 } from '@material-ui/core'
 import Dropdown from './Dropdown'
-// import IconButton from './IconButton'
 import { useStore } from '../../../core/store'
 import { updateUserInfo } from '../../../api/user'
 
@@ -119,7 +118,6 @@ export default withRouter(({ isAuthenticated, history }) => {
                   { text: 'Logout', onClick: () => onLogout() },
                 ]}
               />
-              {/* <IconButton /> */}
             </>
           )}
         </Toolbar>

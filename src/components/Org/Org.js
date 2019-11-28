@@ -47,13 +47,13 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
       scrollToBottom()
       // socket.emit('enterChat', { user_id: userId })
     } catch (error) {
-      alert('Erro ao entrar no chat')
+      console.log('Erro ao entrar no chat')
     }
   }
 
   useEffect(() => {
     if (currentChat.id) {
-      setInterval(onGetMessages(currentChat.id), 5000)
+      setInterval(onGetMessages(currentChat.id), 2000)
     }
     // eslint-disable-next-line
   }, [])
@@ -70,7 +70,7 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
       onGetRoomsInfo()
       // socket.emit('enterRoom', { user_id: userId })
     } catch (error) {
-      alert('Erro ao entrar na sala')
+      console.log(`Error entering room: ${error}`)
     }
   }
 
