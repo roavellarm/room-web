@@ -3,6 +3,14 @@ import { getUser } from '../helpers/handleUser'
 
 export const getUserOrgs = () => axios.get('/org')
 
+export const addNewMember = (id, data) => {
+  // debugger
+  // TODO
+  // console.log(data)
+  // data não deve enviar org_id, apenas { email: "user@email.com" }
+  axios.put(`/org/${id}/add_member`, data)
+}
+
 export const createUserOrg = data => {
   const params = {
     user_id: getUser().id,

@@ -11,6 +11,7 @@ import {
   Org,
   CreateOrg,
   CreateRoom,
+  AddMember,
   Call,
 } from '../containers'
 
@@ -31,6 +32,10 @@ export default ({ isAuthenticated }) => {
         <Route
           path="/create-org"
           component={props => <CreateOrg {...props} />}
+        />
+        <Route
+          path="/add-member/:org_id"
+          children={props => <AddMember {...props} />}
         />
         <Route
           path="/create-room/:org_id"
