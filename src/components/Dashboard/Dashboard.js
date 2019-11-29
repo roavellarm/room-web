@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Tooltip, Fab } from '@material-ui/core'
@@ -33,16 +33,6 @@ export default ({ orgs }) => {
       </StyledFloatingButton>
     </>
   )
-
-  useEffect(() => {
-    let interval
-    interval = setInterval(getOrgs(), 5000)
-
-    return () => {
-      clearInterval(interval)
-    }
-    // eslint-disable-next-line
-  }, [])
 
   return <Layout content={content} />
 }
