@@ -26,5 +26,5 @@ export default () => {
     // eslint-disable-next-line
   }, [])
 
-  return <Dagshboard orgs={list} />
+  return <Dashboard orgs={list} />
 }
