@@ -6,7 +6,7 @@ export default ({ fields, onChangeField, onSubmit }) => {
     {
       autoFocus: true,
       name: 'name',
-      label: 'Name',
+      label: 'Name of the Organization',
       field: fields.name,
     },
     {
@@ -18,7 +18,7 @@ export default ({ fields, onChangeField, onSubmit }) => {
     },
     {
       name: 'image',
-      label: 'Image',
+      label: 'Background image URL',
       field: fields.image,
     },
   ]

@@ -18,18 +18,18 @@ export default ({ fields, onChangeField, onSubmit }) => {
     },
     {
       name: 'positives',
-      label: 'Positives',
+      label: 'Your feedback',
       field: fields.positives,
       multiline: true,
       rows: 4,
     },
-    {
-      name: 'negatives',
-      label: 'Negatives',
-      field: fields.negatives,
-      multiline: true,
-      rows: 4,
-    },
+    // {
+    //   name: 'negatives',
+    //   label: 'Negatives',
+    //   field: fields.negatives,
+    //   multiline: true,
+    //   rows: 4,
+    // },
   ]
 
   return (

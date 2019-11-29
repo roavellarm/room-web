@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Tooltip, Fab } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
-import { Layout } from '../templates'
+import { Layout, Paragraph } from '../templates'
 import { WithOrgs, WithoutOrg } from '.'
 
 const StyledFloatingButton = styled.div`
@@ -19,16 +19,19 @@ export default ({ orgs }) => {
 
       <StyledFloatingButton>
         <Link to={`/create-org`} style={{ textDecoration: 'none' }}>
-          <Tooltip title="Create your org">
-            <Fab
-              size="small"
-              color="secondary"
-              aria-label="add"
-              // className={classes.margin}
-            >
-              <AddIcon />
-            </Fab>
-          </Tooltip>
+          <Paragraph variant="h6" align="center" color="textDefault">
+            Add Org{' '}
+            <Tooltip title="Create your org">
+              <Fab
+                size="small"
+                color="secondary"
+                aria-label="add"
+                // className={classes.margin}
+              >
+                <AddIcon />
+              </Fab>
+            </Tooltip>
+          </Paragraph>
         </Link>
       </StyledFloatingButton>
     </>

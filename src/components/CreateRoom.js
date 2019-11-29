@@ -16,14 +16,14 @@ export default ({ fields, onChangeField, onSubmit }) => {
     },
     {
       name: 'background_image',
-      label: 'Background Image',
+      label: 'Background Image URL',
       field: fields.background_image,
     },
-    {
-      name: 'avatar_image',
-      label: 'Avatar Image',
-      field: fields.avatar_image,
-    },
+    // {
+    //   name: 'avatar_image',
+    //   label: 'Avatar Image URL',
+    //   field: fields.avatar_image,
+    // },
   ]
 
   return (

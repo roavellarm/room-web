@@ -31,7 +31,7 @@ export default ({ fields, onChangeField, onSubmit }) => {
     },
     {
       name: 'image',
-      label: 'Avatar image',
+      label: 'Your avatar image URL',
       field: fields.image,
     },
     {
