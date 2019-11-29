@@ -80,7 +80,7 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
   useEffect(() => {
     let interval
     if (currentChat) {
-      interval = setInterval(onGetMessages(currentChat.id), 5000)
+      interval = setInterval(onGetMessages(currentChat.id), 1000)
     }
 
     return () => {
@@ -91,7 +91,7 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
 
   useEffect(() => {
     let interval
-    interval = setInterval(onGetRoomsInfo(org_id), 10000)
+    interval = setInterval(onGetRoomsInfo, 3000)
 
     return () => {
       clearInterval(interval)
