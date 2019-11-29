@@ -62,7 +62,7 @@ export default ({ org_id }) => {
         </Link>
 
         <Link to={`/add-member/${org_id}`} className={classes.links}>
-          <Paragraph variant="h7" align="right" color="textDefault">
+          <Paragraph variant="h7" align="right" color="textSecondary">
             <Grid
               container
               direction="row"
