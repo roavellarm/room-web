@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Row, HeroSection } from '../templates'
 
@@ -52,6 +52,7 @@ function Chat({
   chatMessages,
   onSendMessage,
   currentUser,
+  onGetMessages,
 }) {
   const [message, setMessage] = useState(undefined)
   const { title } = currentChat
@@ -60,6 +61,18 @@ function Chat({
     onSendMessage(message)
     setMessage('')
   }
+
+  useEffect(() => {
+    let interval
+    if (currentChat) {
+      interval = setInterval(onGetMessages, 5000)
+    }
+
+    return () => {
+      clearInterval(interval)
+    }
+    // eslint-disable-next-line
+  }, [])
 
   const getUserEmail = () => currentUser.email
 

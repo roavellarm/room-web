@@ -51,23 +51,6 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
     }
   }
 
-  useEffect(() => {
-    let interval
-    if (currentChat) {
-      interval = setInterval(onGetMessages(currentChat.id), 5000)
-    }
-
-    return () => {
-      clearInterval(interval)
-    }
-    // eslint-disable-next-line
-  }, [])
-
-  useEffect(() => {
-    onGetRoomsInfo(org_id)
-    // eslint-disable-next-line
-  }, [])
-
   const onEnterInRoom = async roomId => {
     try {
       const response = await enterInRoom(roomId)
@@ -94,6 +77,28 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
     }
   }
 
+  useEffect(() => {
+    let interval
+    if (currentChat) {
+      interval = setInterval(onGetMessages(currentChat.id), 5000)
+    }
+
+    return () => {
+      clearInterval(interval)
+    }
+    // eslint-disable-next-line
+  }, [])
+
+  useEffect(() => {
+    let interval
+    interval = setInterval(onGetRoomsInfo(org_id), 10000)
+
+    return () => {
+      clearInterval(interval)
+    }
+    // eslint-disable-next-line
+  }, [])
+
   return (
     <Layout>
       {!!currentChat ? (
@@ -104,6 +109,7 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
           currentChat={currentChat}
           setCurrentChat={setCurrentChat}
           onSendMessage={onSendMessage}
+          onGetMessages={onGetMessages(currentChat.id)}
         />
       ) : (
         <>

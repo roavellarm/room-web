@@ -17,7 +17,12 @@ export default () => {
   }
 
   useEffect(() => {
-    getOrgs()
+    let interval
+    interval = setInterval(getOrgs(), 10000)
+
+    return () => {
+      clearInterval(interval)
+    }
     // eslint-disable-next-line
   }, [])
 
