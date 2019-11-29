@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Tooltip, Fab } from '@material-ui/core'
@@ -12,28 +12,37 @@ const StyledFloatingButton = styled.div`
   bottom: 70px;
 `
 
-export default ({ orgs }) => {
-
+export default ({ orgs, getOrgs }) => {
   const content = (
     <>
-      {!orgs.length ? <WithoutOrg /> : <WithOrgs orgs={orgs} />}
+      {!orgs.length ? <WithoutOrg /> : <WithOrgs orgs={orgs} getOrgs={getOrgs} />}
 
-         <StyledFloatingButton>
-         <Link to={`/create-org`} style={{ textDecoration: 'none' }}>
-            <Tooltip title="Create your org">
-              <Fab
-                size="small"
-                color="secondary"
-                aria-label="add"
-                // className={classes.margin}
-              >
-                <AddIcon />
-              </Fab>
-            </Tooltip>
-            </Link>
-            </StyledFloatingButton>
-
+      <StyledFloatingButton>
+        <Link to={`/create-org`} style={{ textDecoration: 'none' }}>
+          <Tooltip title="Create your org">
+            <Fab
+              size="small"
+              color="secondary"
+              aria-label="add"
+              // className={classes.margin}
+            >
+              <AddIcon />
+            </Fab>
+          </Tooltip>
+        </Link>
+      </StyledFloatingButton>
     </>
   )
+
+  useEffect(() => {
+    let interval
+    interval = setInterval(getOrgs(), 5000)
+
+    return () => {
+      clearInterval(interval)
+    }
+    // eslint-disable-next-line
+  }, [])
+
   return <Layout content={content} />
 }
