@@ -17,8 +17,9 @@ export default () => {
   }
 
   useEffect(() => {
+    getOrgs()
     let interval
-    interval = setInterval(getOrgs(), 5000)
+    interval = setInterval(getOrgs, 5000)
 
     return () => {
       clearInterval(interval)
