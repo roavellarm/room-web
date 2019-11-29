@@ -18,7 +18,7 @@ export default () => {
 
   useEffect(() => {
     let interval
-    interval = setInterval(getOrgs(), 10000)
+    interval = setInterval(getOrgs(), 5000)
 
     return () => {
       clearInterval(interval)
@@ -26,5 +26,5 @@ export default () => {
     // eslint-disable-next-line
   }, [])
 
-  return <Dashboard orgs={list} getOrgs={getOrgs} />
+  return <Dagshboard orgs={list} />
 }

@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Tooltip, Fab } from '@material-ui/core'
@@ -12,10 +12,10 @@ const StyledFloatingButton = styled.div`
   bottom: 70px;
 `
 
-export default ({ orgs, getOrgs }) => {
+export default ({ orgs }) => {
   const content = (
     <>
-      {!orgs.length ? <WithoutOrg /> : <WithOrgs orgs={orgs} getOrgs={getOrgs} />}
+      {!orgs.length ? <WithoutOrg /> : <WithOrgs orgs={orgs} />}
 
       <StyledFloatingButton>
         <Link to={`/create-org`} style={{ textDecoration: 'none' }}>
