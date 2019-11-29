@@ -60,13 +60,17 @@ export default withRouter(({ isAuthenticated, history }) => {
     }
   }
 
-  const onLogout = () => {
-    leaveRooms()
-    localStorage.removeItem('isAuthenticated')
-    localStorage.removeItem('database')
-    localStorage.removeItem('currentUser')
-    setStore({ isAuthenticated: false })
-    history.push('/')
+  const onLogout = async () => {
+    try {
+      await leaveRooms(store.currentUser.id)
+      localStorage.removeItem('isAuthenticated')
+      localStorage.removeItem('database')
+      localStorage.removeItem('currentUser')
+      setStore({ isAuthenticated: false })
+      history.push('/')
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
