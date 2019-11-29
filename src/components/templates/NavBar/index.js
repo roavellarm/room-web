@@ -3,6 +3,14 @@ import styled from 'styled-components'
 import { Link, withRouter } from 'react-router-dom'
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import FeedbackIcon from '@material-ui/icons/Feedback'
+import EmojiEmotionsOutlinedIcon from '@material-ui/icons/EmojiEmotionsOutlined'
+import SentimentVerySatisfiedOutlinedIcon from '@material-ui/icons/SentimentVerySatisfiedOutlined'
+import MoodBadOutlinedIcon from '@material-ui/icons/MoodBadOutlined'
+import SentimentDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentDissatisfiedOutlined'
+import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined'
+import SentimentVeryDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentVeryDissatisfiedOutlined'
+import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied'
+import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied'
 import {
   AppBar,
   Toolbar,
@@ -27,7 +35,16 @@ const useStyles = makeStyles({
 
 export default withRouter(({ isAuthenticated, history }) => {
   // Add moods here
-  const moods = ['Happy', 'Sad', 'Angry']
+  const moods = [
+    <SentimentVeryDissatisfiedOutlinedIcon fontSize="large" />,
+    <MoodBadOutlinedIcon fontSize="large" />,
+    <SentimentDissatisfiedOutlinedIcon fontSize="large" />,
+    <SentimentDissatisfiedIcon fontSize="large" />,
+    <SentimentSatisfiedIcon fontSize="large" />,
+    <SentimentSatisfiedOutlinedIcon fontSize="large" />,
+    <EmojiEmotionsOutlinedIcon fontSize="large" />,
+    <SentimentVerySatisfiedOutlinedIcon fontSize="large" />,
+  ]
 
   const classes = useStyles()
   const { store, setStore } = useStore()
@@ -36,6 +53,7 @@ export default withRouter(({ isAuthenticated, history }) => {
     try {
       const currentMood = String(mood).toLocaleLowerCase()
       await updateUserInfo(currentMood)
+
       alert(`Mood changed to ${mood}`)
     } catch (error) {
       console.log(error)

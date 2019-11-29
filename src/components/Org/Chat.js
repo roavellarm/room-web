@@ -82,7 +82,7 @@ function Chat({
         <HeroSection title={title + ' chat'} subtitle={currentOrg} />
       </HoverText>
       {chatMessages.map(m => (
-        <Row>
+        <Row key={m.user_email}>
           <StyledMessage isUser={getUserEmail() === m.user_email}>
             <strong>
               <div>{m.user_name}</div>

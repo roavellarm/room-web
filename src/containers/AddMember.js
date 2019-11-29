@@ -17,9 +17,9 @@ export default withRouter(({ history, match }) => {
     try {
       const response = await addNewMember(org_id, fields)
       if (response.status === 200) {
+        saveData(response.headers)
         alert('Register email with success')
         setFields({ email: '' })
-        saveData(response.headers)
         history.push(`/org/${org_id}`)
       }
     } catch (error) {
