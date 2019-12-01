@@ -37,14 +37,14 @@ export default withRouter(({ list, name, org_id, getRooms }) => {
     getRooms()
   }
 
-  const scrollToBottom = () => window.scrollTo(0, document.body.scrollHeight)
+  // const scrollToBottom = () => window.scrollTo(0, document.body.scrollHeight)
 
   const onGetMessages = async roomId => {
     try {
       const response = await getMessages(roomId)
       setChatMesages(response.data)
       saveData(response.headers)
-      scrollToBottom()
+      // scrollToBottom()
       // socket.emit('enterChat', { user_id: userId })
     } catch (error) {
       console.log('Erro ao entrar no chat')
