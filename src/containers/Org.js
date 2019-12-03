@@ -7,15 +7,20 @@ import { useStore } from '../core/store'
 export default props => {
   const { id } = props.match.params
   const [list, setList] = useState([])
+  const [memberList, setMemberList] = useState([])
   const { store, setStore } = useStore()
 
   const getRooms = async () => {
     try {
       const response = await getRoomsByOrg(id)
       if (!store.currentOrg) {
-        setStore({ currentOrgName: response.data.name })
+        setStore({
+          currentOrgName: response.data.name,
+          currentOrgCreator: response.data.user,
+        })
       }
       setList(response.data.rooms)
+      setMemberList(response.data.members)
       saveData(response.headers)
     } catch (error) {
       console.log(error)
@@ -37,7 +42,9 @@ export default props => {
     <Org
       getRooms={getRooms}
       list={list}
+      memberList={memberList}
       name={store.currentOrgName}
+      creator={store.currentOrgCreator}
       org_id={id}
     />
   )
