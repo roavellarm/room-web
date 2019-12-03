@@ -6,8 +6,8 @@ import { saveData } from '../helpers/storage'
 import { saveUser } from '../helpers/handleUser'
 
 export default withRouter(({ history }) => {
-  const [fields, setFields] = useState({})
   const currentUser = localStorage.getItem('currentUser')
+  const [fields, setFields] = useState(JSON.parse(currentUser))
   const { id } = JSON.parse(currentUser)
 
   const onChangeField = e => {
@@ -30,10 +30,13 @@ export default withRouter(({ history }) => {
   }
 
   return (
-    <UserProfileComponent
-      fields={fields}
-      onChangeField={onChangeField}
-      onSubmit={onSubmit}
-    />
+    <>
+      {console.log(fields)}
+      <UserProfileComponent
+        fields={fields}
+        onChangeField={onChangeField}
+        onSubmit={onSubmit}
+      />
+    </>
   )
 })
