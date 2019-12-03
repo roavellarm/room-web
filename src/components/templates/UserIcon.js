@@ -1,7 +1,7 @@
 import React from 'react'
 import Avatar from '../templates/Avatar'
 
-export default ({ status, image }) => {
+export default ({ status, tooltip, image }) => {
   // const statusType = {
   //   onCall: 'onCall',
   //   available: 'available',
@@ -18,5 +18,5 @@ export default ({ status, image }) => {
   //     return require('../../assets/images/icons/busy.png')
   // }
 
-  return <Avatar name="icon" img={image} />
+  return <Avatar name="icon" tooltip={tooltip} img={image} />
 }
