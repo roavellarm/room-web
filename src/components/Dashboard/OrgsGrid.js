@@ -56,7 +56,12 @@ export default ({ orgs }) => {
               <CardActions>
                 <Link
                   to={`/org/${org.id}`}
-                  onClick={() => setStore({ currentOrgName: org.name })}
+                  onClick={() =>
+                    setStore({
+                      currentOrgName: org.name,
+                      currentOrgCreator: org.user,
+                    })
+                  }
                   style={{ textDecoration: 'none' }}
                 >
                   <Button size="small" color="primary">
