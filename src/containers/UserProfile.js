@@ -14,8 +14,6 @@ export default withRouter(({ history }) => {
     setFields({ ...fields, [e.target.name]: e.target.value })
   }
 
-  // const getUserData =
-
   const onSubmit = async () => {
     try {
       const response = await updateUserInfo(id, fields)
