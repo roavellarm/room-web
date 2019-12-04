@@ -37,7 +37,8 @@ export default ({ org_id }) => {
     <StyledFloatingButton>
       <div>
         <Link to={`/create-room/${org_id}`} className={classes.links}>
-          <Paragraph variant="h7" align="right" color="textSecondary">
+          <Paragraph variant="h7" align="right" color="secondary">
+            {/* Colors: "initial","inherit","primary","secondary","textPrimary","textSecondary","error" */}
             <Grid
               container
               direction="row"
@@ -62,7 +63,7 @@ export default ({ org_id }) => {
         </Link>
 
         <Link to={`/add-member/${org_id}`} className={classes.links}>
-          <Paragraph variant="h7" align="right" color="textSecondary">
+          <Paragraph variant="h7" align="right" color="primary">
             <Grid
               container
               direction="row"
