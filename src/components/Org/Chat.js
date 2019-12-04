@@ -58,7 +58,7 @@ function Chat({
   const { title } = currentChat
 
   const _onSendMessage = () => {
-    onSendMessage(message)
+    onSendMessage(message, true)
     setMessage('')
   }
 
