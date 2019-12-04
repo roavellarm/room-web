@@ -28,7 +28,6 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(14),
-      paddingRight: 0,
     },
   },
   overlay: {
