@@ -12,6 +12,7 @@ import {
   makeStyles,
 } from '@material-ui/core'
 import { useStore } from '../../core/store'
+import imageNotAvailable from '../../assets/images/image_not_available.png'
 
 const useStyles = makeStyles(theme => ({
   orgGrid: {
@@ -44,7 +45,11 @@ export default ({ orgs }) => {
             <Card className={classes.org}>
               <CardMedia
                 className={classes.orgMedia}
-                image={org.image}
+                image={
+                  org.image != null || !org.image === ' '
+                    ? org.image
+                    : imageNotAvailable
+                }
                 title="Image title"
               />
               <CardContent className={classes.orgContent}>
