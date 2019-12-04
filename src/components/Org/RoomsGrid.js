@@ -53,7 +53,11 @@ export default ({ list, onEnterInRoom, onEnterInChat }) => {
                 <Grid container>
                   {room.online_members.map(member => (
                     <Grid key={`${room.id}-${member.id}`} item>
-                      <UserIcon status="onCall" image={member.image} />
+                      <UserIcon
+                        status={member.status}
+                        tooltip={`${member.first_name} ${member.last_name} - ${member.mood}`}
+                        image={member.image}
+                      />
                     </Grid>
                   ))}
                 </Grid>
@@ -66,7 +70,8 @@ export default ({ list, onEnterInRoom, onEnterInChat }) => {
                   aria-label="menu"
                 >
                   <Tooltip title="Enter room">
-                    <MeetingRoomIcon color={'default'} />
+                    <MeetingRoomIcon color={'inherit'} />
+                    {/* Th color can be: "action","disabled","error","inherit","primary","secondary". */}
                   </Tooltip>
                 </IconButton>
 

@@ -6,15 +6,13 @@ import { saveData } from '../helpers/storage'
 import { saveUser } from '../helpers/handleUser'
 
 export default withRouter(({ history }) => {
-  const [fields, setFields] = useState({})
   const currentUser = localStorage.getItem('currentUser')
+  const [fields, setFields] = useState(JSON.parse(currentUser))
   const { id } = JSON.parse(currentUser)
 
   const onChangeField = e => {
     setFields({ ...fields, [e.target.name]: e.target.value })
   }
-
-  // const getUserData =
 
   const onSubmit = async () => {
     try {

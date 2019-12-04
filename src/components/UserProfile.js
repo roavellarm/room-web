@@ -41,36 +41,76 @@ export default ({ fields, onChangeField, onSubmit }) => {
       type: 'select',
       options: [
         {
-          value: '0',
-          text: <SentimentVeryDissatisfiedOutlinedIcon fontSize="large" />,
+          value: 'Very dissatisfied',
+          text: (
+            <>
+              <SentimentVeryDissatisfiedOutlinedIcon fontSize="large" />
+              Very dissatisfied
+            </>
+          ),
         },
         {
-          value: '1',
-          text: <MoodBadOutlinedIcon fontSize="large" />,
+          value: 'Very bad',
+          text: (
+            <>
+              <MoodBadOutlinedIcon fontSize="large" />
+              Very bad
+            </>
+          ),
         },
         {
-          value: '2',
-          text: <SentimentDissatisfiedOutlinedIcon fontSize="large" />,
+          value: 'Bad',
+          text: (
+            <>
+              <SentimentDissatisfiedOutlinedIcon fontSize="large" />
+              Bad
+            </>
+          ),
         },
         {
-          value: '3',
-          text: <SentimentDissatisfiedIcon fontSize="large" />,
+          value: 'Dissatisfied',
+          text: (
+            <>
+              <SentimentDissatisfiedIcon fontSize="large" />
+              Dissatisfied
+            </>
+          ),
         },
         {
-          value: '4',
-          text: <SentimentSatisfiedIcon fontSize="large" />,
+          value: 'Satisfied',
+          text: (
+            <>
+              <SentimentSatisfiedIcon fontSize="large" />
+              Satisfied
+            </>
+          ),
         },
         {
-          value: '5',
-          text: <SentimentSatisfiedOutlinedIcon fontSize="large" />,
+          value: 'Happy',
+          text: (
+            <>
+              <SentimentSatisfiedOutlinedIcon fontSize="large" />
+              Happy
+            </>
+          ),
         },
         {
-          value: '6',
-          text: <EmojiEmotionsOutlinedIcon fontSize="large" />,
+          value: 'Very happy',
+          text: (
+            <>
+              <EmojiEmotionsOutlinedIcon fontSize="large" />
+              Very happy
+            </>
+          ),
         },
         {
-          value: '7',
-          text: <SentimentVerySatisfiedOutlinedIcon fontSize="large" />,
+          value: 'Very satisfied',
+          text: (
+            <>
+              <SentimentVerySatisfiedOutlinedIcon fontSize="large" />
+              Very satisfied
+            </>
+          ),
         },
       ],
     },

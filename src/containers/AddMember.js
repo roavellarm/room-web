@@ -30,7 +30,6 @@ export default withRouter(({ history, match }) => {
 
   return (
     <>
-      {console.log(match.params)}
       <AddMemberComponent
         fields={fields}
         onChangeField={onChangeField}

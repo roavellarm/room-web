@@ -63,14 +63,14 @@ export default withRouter(({ isAuthenticated, history }) => {
   const onLogout = async () => {
     try {
       await leaveRooms(store.currentUser.id)
-      localStorage.removeItem('isAuthenticated')
-      localStorage.removeItem('database')
-      localStorage.removeItem('currentUser')
-      setStore({ isAuthenticated: false })
-      history.push('/')
     } catch (error) {
       console.log(error)
     }
+    localStorage.removeItem('isAuthenticated')
+    localStorage.removeItem('database')
+    localStorage.removeItem('currentUser')
+    setStore({ isAuthenticated: false })
+    history.push('/')
   }
 
   return (
@@ -132,6 +132,7 @@ export default withRouter(({ isAuthenticated, history }) => {
                   />
                 </div>
               </Tooltip>
+
               <Dropdown
                 dropdownItems={[
                   {

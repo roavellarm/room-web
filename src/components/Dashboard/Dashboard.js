@@ -19,7 +19,8 @@ export default ({ orgs }) => {
 
       <StyledFloatingButton>
         <Link to={`/create-org`} style={{ textDecoration: 'none' }}>
-          <Paragraph variant="h6" align="center" color="textDefault">
+          {/* Colors: "initial","inherit","primary","secondary","textPrimary","textSecondary","error" */}
+          <Paragraph variant="h6" align="center" color="secondary">
             Add Org{' '}
             <Tooltip title="Create your org">
               <Fab

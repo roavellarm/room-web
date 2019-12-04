@@ -42,15 +42,18 @@ export default ({ dropdownItems, icon }) => {
           onClose={handleClose}
         >
           {dropdownItems.map(i => (
-            <MenuItem
-              selected={i.selected}
-              onClick={() => {
-                handleClose()
-                i.onClick()
-              }}
-            >
-              {i.text}
-            </MenuItem>
+            <>
+              <MenuItem
+                key={i.text}
+                selected={i.selected}
+                onClick={() => {
+                  handleClose()
+                  i.onClick()
+                }}
+              >
+                {i.text}
+              </MenuItem>
+            </>
           ))}
         </Menu>
       </div>
