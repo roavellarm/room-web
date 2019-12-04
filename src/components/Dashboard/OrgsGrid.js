@@ -62,7 +62,10 @@ export default ({ orgs }) => {
                 <Link
                   to={`/org/${org.id}`}
                   onClick={() =>
-                    setStore({ currentOrgName: org.name, orgCreator: org.user })
+                    setStore({
+                      currentOrgName: org.name,
+                      currentOrgCreator: org.user,
+                    })
                   }
                   style={{ textDecoration: 'none' }}
                 >

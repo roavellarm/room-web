@@ -16,7 +16,7 @@ export default props => {
       if (!store.currentOrg) {
         setStore({
           currentOrgName: response.data.name,
-          orgCreator: response.data.user,
+          currentOrgCreator: response.data.user,
         })
       }
       setList(response.data.rooms)
@@ -28,9 +28,8 @@ export default props => {
   }
 
   useEffect(() => {
-    let interval
     getRooms()
-    interval = setInterval(getRooms, 5000)
+    const interval = setInterval(() => getRooms(), 5000)
 
     return () => {
       clearInterval(interval)
@@ -44,6 +43,7 @@ export default props => {
       list={list}
       memberList={memberList}
       name={store.currentOrgName}
+      creator={store.currentOrgCreator}
       org_id={id}
     />
   )

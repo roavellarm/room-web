@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Row, HeroSection } from '../templates'
+import { Link } from 'react-router-dom'
+import { Row, HeroSection } from '../components/templates'
+import { sendMessage, getMessages } from '../api/chat'
+import { getRoomsByOrg } from '../api/room'
 
 const StyledMessagesContainer = styled.div``
 
@@ -45,29 +48,56 @@ const HoverText = styled.div`
   }
 `
 
-function Chat({
-  currentChat,
-  setCurrentChat,
-  currentOrg,
-  chatMessages,
-  onSendMessage,
-  currentUser,
-}) {
+function Chat({ currentOrg, currentUser, match }) {
   const [message, setMessage] = useState(undefined)
-  const { title } = currentChat
+  const [chatMessages, setChatMessages] = useState([])
+  const [title, setTitle] = useState(undefined)
+  const { orgId, roomId } = match.params
 
-  const _onSendMessage = () => {
-    onSendMessage(message)
-    setMessage('')
+  const onSendMessage = async () => {
+    try {
+      await sendMessage(roomId, message)
+      setMessage('')
+    } catch (error) {
+      console.log(error)
+    }
   }
+
+  const onGetOrgInfo = async () => {
+    try {
+      const response = await getRoomsByOrg(orgId)
+      setTitle(response.data.name)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const onGetMessages = async () => {
+    try {
+      const response = await getMessages(+roomId)
+      setChatMessages(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    onGetOrgInfo()
+    const interval = setInterval(() => onGetMessages(), 5000)
+
+    return () => clearInterval(interval)
+    // eslint-disable-next-line
+  }, [])
 
   const getUserEmail = () => currentUser.email
 
   return (
     <StyledMessagesContainer>
-      <HoverText onClick={() => setCurrentChat(undefined)}>
-        <HeroSection title={title + ' chat'} subtitle={currentOrg} />
-      </HoverText>
+      <Link to={`/org/${orgId}`}>
+        <HoverText>
+          <HeroSection title={`${title} - Chat`} subtitle={currentOrg} />
+        </HoverText>
+      </Link>
       {chatMessages.map(m => (
         <Row key={m.user_email}>
           <StyledMessage isUser={getUserEmail() === m.user_email}>
@@ -82,11 +112,11 @@ function Chat({
         <StyledTextField
           value={message}
           onKeyDown={({ keyCode }) =>
-            keyCode === 13 ? _onSendMessage() : undefined
+            keyCode === 13 ? onSendMessage() : undefined
           }
           onChange={({ target }) => setMessage(target.value)}
         />
-        <StyledButton onClick={() => _onSendMessage()}>Send</StyledButton>
+        <StyledButton onClick={() => onSendMessage()}>Send</StyledButton>
       </StyledFieldArea>
     </StyledMessagesContainer>
   )

@@ -21,16 +21,18 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default ({ memberList, orgCreator }) => {
+export default ({ memberList, creator }) => {
   const classes = useStyles()
+
+  if (!creator) return null
 
   return (
     <Container maxWidth={false} className={classes.memberCard}>
       Org creator:{' '}
       <UserIcon
         status="onCall"
-        image={orgCreator.image}
-        tooltip={orgCreator.first_name + ' ' + orgCreator.last_name}
+        image={creator.image}
+        tooltip={creator.first_name + ' ' + creator.last_name}
       />
       <Grid container>
         {memberList.map(member => (

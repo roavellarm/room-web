@@ -30,13 +30,10 @@ export default withRouter(({ history }) => {
   }
 
   return (
-    <>
-      {console.log(fields)}
-      <UserProfileComponent
-        fields={fields}
-        onChangeField={onChangeField}
-        onSubmit={onSubmit}
-      />
-    </>
+    <UserProfileComponent
+      fields={fields}
+      onChangeField={onChangeField}
+      onSubmit={onSubmit}
+    />
   )
 })
