@@ -35,6 +35,7 @@ export default ({ memberList, creator }) => {
         tooltip={creator.first_name + ' ' + creator.last_name}
       />
       <Grid container>
+        Org members:{' '}
         {memberList.map(member => (
           <Grid key={`${member.id}-${member.first_name}`} item>
             {/* {console.log(member)} */}
