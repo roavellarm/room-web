@@ -23,8 +23,15 @@ export default withRouter(({ history, match }) => {
         history.push(`/org/${org_id}`)
       }
     } catch (error) {
-      console.log(error)
-      alert('Something went wrong...')
+      const status = error.response.status
+      if (status === 422 || status === 404) {
+        saveData(error.response.headers)
+        alert(error.response.data.errors.message)
+        console.log(error.response.data.errors.message)
+      } else {
+        console.log(error)
+        alert('Something went wrong...')
+      }
     }
   }
 
