@@ -70,7 +70,8 @@ export default ({ list, onEnterInRoom, onEnterInChat }) => {
                   aria-label="menu"
                 >
                   <Tooltip title="Enter room">
-                    <MeetingRoomIcon color={'default'} />
+                    <MeetingRoomIcon color={'inherit'} />
+                    {/* Th color can be: "action","disabled","error","inherit","primary","secondary". */}
                   </Tooltip>
                 </IconButton>
 
