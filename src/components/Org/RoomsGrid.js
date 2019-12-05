@@ -54,7 +54,7 @@ export default ({ list, onEnterInRoom, onEnterInChat }) => {
                   {room.online_members.map(member => (
                     <Grid key={`${room.id}-${member.id}`} item>
                       <UserIcon
-                        status={member.status}
+                        status={member.status.status}
                         tooltip={`${member.first_name} ${member.last_name} - ${member.mood.name}`}
                         image={member.image}
                       />

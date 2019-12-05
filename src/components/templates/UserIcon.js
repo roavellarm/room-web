@@ -2,21 +2,19 @@ import React from 'react'
 import Avatar from '../templates/Avatar'
 
 export default ({ status, tooltip, image }) => {
-  // const statusType = {
-  //   onCall: 'onCall',
-  //   available: 'available',
-  //   busy: 'busy',
-  // }
-  // const getIcon = () => {
-  //   if (status === statusType.onCall)
-  //     return require('../../assets/images/icons/call.png')
+  console.log(`!!!!!!Aqui o status no userIcon: ${status}`)
+  const statusType = {
+    onCall: 'on_call',
+    available: 'available',
+    busy: 'busy',
+  }
+  const getStatus = () => {
+    if (status === statusType.onCall) return ' #ffa31a'
+    if (status === statusType.available) return '#00FF17'
+    if (status === statusType.busy) return 'error.main'
+  }
 
-  //   if (status === statusType.available)
-  //     return require('../../assets/images/icons/available.png')
-
-  //   if (status === statusType.busy)
-  //     return require('../../assets/images/icons/busy.png')
-  // }
-
-  return <Avatar name="icon" tooltip={tooltip} img={image} />
+  return (
+    <Avatar name="icon" status={getStatus()} tooltip={tooltip} img={image} />
+  )
 }

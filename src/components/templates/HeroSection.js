@@ -17,7 +17,9 @@ export default ({ title, subtitle }) => {
     <div className={classes.heroContent}>
       <Container maxWidth="sm">
         <Title>{title}</Title>
-        <Paragraph>{subtitle}</Paragraph>
+        <Paragraph variant={'overline'} color={'primary'}>
+          {subtitle}
+        </Paragraph>
       </Container>
     </div>
   )

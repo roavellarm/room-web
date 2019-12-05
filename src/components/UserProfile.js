@@ -27,21 +27,21 @@ export default ({ fields, onChangeField, onSubmit }) => {
       field: fields.image,
     },
     {
-      name: 'mood',
-      label: 'Current mood',
-      field: fields.mood,
+      name: 'status',
+      label: 'Current status',
+      field: fields.status,
       type: 'select',
       options: [
         {
-          value: 'available',
+          value: { status: 'available' },
           text: 'Available',
         },
         {
-          value: 'busy',
+          value: { status: 'busy' },
           text: 'Busy',
         },
         {
-          value: 'on_call',
+          value: { status: 'on_call' },
           text: 'In a call',
         },
       ],
@@ -53,35 +53,35 @@ export default ({ fields, onChangeField, onSubmit }) => {
       type: 'select',
       options: [
         {
-          value: 'Very dissatisfied',
+          value: { name: 'Very dissatisfied' },
           text: 'Very dissatisfied',
         },
         {
-          value: 'Very bad',
+          value: { name: 'Very bad' },
           text: 'Very bad',
         },
         {
-          value: 'Bad',
+          value: { name: 'Bad' },
           text: 'Bad',
         },
         {
-          value: 'Dissatisfied',
+          value: { name: 'Dissatisfied' },
           text: 'Dissatisfied',
         },
         {
-          value: 'Satisfied',
+          value: { name: 'Satisfied' },
           text: 'Satisfied',
         },
         {
-          value: 'Happy',
+          value: { name: 'Happy' },
           text: 'Happy',
         },
         {
-          value: 'Very happy',
+          value: { name: 'Very happy' },
           text: 'Very happy',
         },
         {
-          value: 'Very satisfied',
+          value: { name: 'Very satisfied' },
           text: 'Very satisfied',
         },
       ],
@@ -90,6 +90,7 @@ export default ({ fields, onChangeField, onSubmit }) => {
 
   return (
     <>
+      {console.log(userData)}
       <Form
         onChangeField={onChangeField}
         onSubmit={onSubmit}
