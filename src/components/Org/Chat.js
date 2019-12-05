@@ -66,7 +66,10 @@ function Chat({
   return (
     <StyledMessagesContainer>
       <HoverText onClick={() => setCurrentChat(undefined)}>
-        <HeroSection title={title + ' chat'} subtitle={currentOrg} />
+        <HeroSection
+          title={title + ' chat'}
+          subtitle={'Back to ' + currentOrg}
+        />
       </HoverText>
       {chatMessages.map(m => (
         <Row key={m.user_email}>
