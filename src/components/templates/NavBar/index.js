@@ -62,7 +62,7 @@ export default withRouter(({ isAuthenticated, history }) => {
 
   const onLogout = async () => {
     try {
-      await leaveRooms(store.currentUser.id)
+      leaveRooms(store.currentUser.id)
     } catch (error) {
       console.log(error)
     }

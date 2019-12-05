@@ -40,7 +40,7 @@ export default ({ memberList, creator }) => {
           <Grid key={`${member.id}-${member.first_name}`} item>
             {/* {console.log(member)} */}
             <UserIcon
-              status={member.status.status}
+              status={(member.status === null) ? { status: 'available' } : member.status.status }
               image={member.image}
               tooltip={member.first_name + ' ' + member.last_name}
             />
