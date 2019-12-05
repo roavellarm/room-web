@@ -1,13 +1,5 @@
 import React from 'react'
 import { Form } from './templates'
-import EmojiEmotionsOutlinedIcon from '@material-ui/icons/EmojiEmotionsOutlined'
-import SentimentVerySatisfiedOutlinedIcon from '@material-ui/icons/SentimentVerySatisfiedOutlined'
-import MoodBadOutlinedIcon from '@material-ui/icons/MoodBadOutlined'
-import SentimentDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentDissatisfiedOutlined'
-import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined'
-import SentimentVeryDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentVeryDissatisfiedOutlined'
-import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied'
-import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied'
 
 export default ({ fields, onChangeField, onSubmit }) => {
   const userData = [
@@ -41,76 +33,56 @@ export default ({ fields, onChangeField, onSubmit }) => {
       type: 'select',
       options: [
         {
+          value: 'available',
+          text: 'Available',
+        },
+        {
+          value: 'busy',
+          text: 'Busy',
+        },
+        {
+          value: 'on_call',
+          text: 'In a call',
+        },
+      ],
+    },
+    {
+      name: 'mood',
+      label: 'Current mood',
+      field: fields.mood,
+      type: 'select',
+      options: [
+        {
           value: 'Very dissatisfied',
-          text: (
-            <>
-              <SentimentVeryDissatisfiedOutlinedIcon fontSize="large" />
-              Very dissatisfied
-            </>
-          ),
+          text: 'Very dissatisfied',
         },
         {
           value: 'Very bad',
-          text: (
-            <>
-              <MoodBadOutlinedIcon fontSize="large" />
-              Very bad
-            </>
-          ),
+          text: 'Very bad',
         },
         {
           value: 'Bad',
-          text: (
-            <>
-              <SentimentDissatisfiedOutlinedIcon fontSize="large" />
-              Bad
-            </>
-          ),
+          text: 'Bad',
         },
         {
           value: 'Dissatisfied',
-          text: (
-            <>
-              <SentimentDissatisfiedIcon fontSize="large" />
-              Dissatisfied
-            </>
-          ),
+          text: 'Dissatisfied',
         },
         {
           value: 'Satisfied',
-          text: (
-            <>
-              <SentimentSatisfiedIcon fontSize="large" />
-              Satisfied
-            </>
-          ),
+          text: 'Satisfied',
         },
         {
           value: 'Happy',
-          text: (
-            <>
-              <SentimentSatisfiedOutlinedIcon fontSize="large" />
-              Happy
-            </>
-          ),
+          text: 'Happy',
         },
         {
           value: 'Very happy',
-          text: (
-            <>
-              <EmojiEmotionsOutlinedIcon fontSize="large" />
-              Very happy
-            </>
-          ),
+          text: 'Very happy',
         },
         {
           value: 'Very satisfied',
-          text: (
-            <>
-              <SentimentVerySatisfiedOutlinedIcon fontSize="large" />
-              Very satisfied
-            </>
-          ),
+          text: 'Very satisfied',
         },
       ],
     },
