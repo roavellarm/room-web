@@ -55,7 +55,7 @@ export default ({ list, onEnterInRoom, onEnterInChat }) => {
                     <Grid key={`${room.id}-${member.id}`} item>
                       <UserIcon
                         status={member.status}
-                        tooltip={`${member.first_name} ${member.last_name} - ${member.mood}`}
+                        tooltip={`${member.first_name} ${member.last_name} - ${member.mood.name}`}
                         image={member.image}
                       />
                     </Grid>
