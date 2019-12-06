@@ -20,7 +20,7 @@ export default withRouter(({ history }) => {
       if (response.status === 200) {
         alert('Data updated with success')
         saveData(response.headers)
-        saveUser(response.data.data)
+        saveUser(response.data)
         history.push('/dashboard')
       }
     } catch (error) {

@@ -38,7 +38,6 @@ export default ({ memberList, creator }) => {
         Org members:{' '}
         {memberList.map(member => (
           <Grid key={`${member.id}-${member.first_name}`} item>
-            {/* {console.log(member)} */}
             <UserIcon
               status={(member.status === null) ? { status: 'available' } : member.status.status }
               image={member.image}
