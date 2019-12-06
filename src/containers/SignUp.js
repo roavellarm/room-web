@@ -4,6 +4,7 @@ import { useStore } from '../core/store'
 import SignUp from '../components/SignUp'
 import { signUp } from '../api/auth'
 import { saveData } from '../helpers/storage'
+import { saveUser } from '../helpers/handleUser'
 
 export default withRouter(({ history }) => {
   const { store, setStore } = useStore()
@@ -32,7 +33,14 @@ export default withRouter(({ history }) => {
       if (response.status === 200) {
         saveData(response.headers)
         alert('Register with success')
-        setStore({ isSubmitting: false, isAuthenticated: true })
+        localStorage.setItem('isAuthenticated', true)
+        saveUser(response.data.data)
+        setStore({
+          isSubmitting: false,
+          isAuthenticated: true,
+          currentUser: response.data.data,
+        })
+
         history.push('/dashboard')
       }
     } catch (error) {

@@ -1,13 +1,5 @@
 import React from 'react'
 import { Form } from './templates'
-import EmojiEmotionsOutlinedIcon from '@material-ui/icons/EmojiEmotionsOutlined'
-import SentimentVerySatisfiedOutlinedIcon from '@material-ui/icons/SentimentVerySatisfiedOutlined'
-import MoodBadOutlinedIcon from '@material-ui/icons/MoodBadOutlined'
-import SentimentDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentDissatisfiedOutlined'
-import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined'
-import SentimentVeryDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentVeryDissatisfiedOutlined'
-import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied'
-import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied'
 
 export default ({ fields, onChangeField, onSubmit }) => {
   const userData = [
@@ -35,82 +27,62 @@ export default ({ fields, onChangeField, onSubmit }) => {
       field: fields.image,
     },
     {
+      name: 'status',
+      label: 'Current status',
+      field: fields.status,
+      type: 'select',
+      options: [
+        {
+          value: { status: 'available' },
+          text: 'Available',
+        },
+        {
+          value: { status: 'busy' },
+          text: 'Busy',
+        },
+        {
+          value: { status: 'on_call' },
+          text: 'In a call',
+        },
+      ],
+    },
+    {
       name: 'mood',
       label: 'Current mood',
       field: fields.mood,
       type: 'select',
       options: [
         {
-          value: 'Very dissatisfied',
-          text: (
-            <>
-              <SentimentVeryDissatisfiedOutlinedIcon fontSize="large" />
-              Very dissatisfied
-            </>
-          ),
+          value: { name: 'Very dissatisfied' },
+          text: 'Very dissatisfied',
         },
         {
-          value: 'Very bad',
-          text: (
-            <>
-              <MoodBadOutlinedIcon fontSize="large" />
-              Very bad
-            </>
-          ),
+          value: { name: 'Very bad' },
+          text: 'Very bad',
         },
         {
-          value: 'Bad',
-          text: (
-            <>
-              <SentimentDissatisfiedOutlinedIcon fontSize="large" />
-              Bad
-            </>
-          ),
+          value: { name: 'Bad' },
+          text: 'Bad',
         },
         {
-          value: 'Dissatisfied',
-          text: (
-            <>
-              <SentimentDissatisfiedIcon fontSize="large" />
-              Dissatisfied
-            </>
-          ),
+          value: { name: 'Dissatisfied' },
+          text: 'Dissatisfied',
         },
         {
-          value: 'Satisfied',
-          text: (
-            <>
-              <SentimentSatisfiedIcon fontSize="large" />
-              Satisfied
-            </>
-          ),
+          value: { name: 'Satisfied' },
+          text: 'Satisfied',
         },
         {
-          value: 'Happy',
-          text: (
-            <>
-              <SentimentSatisfiedOutlinedIcon fontSize="large" />
-              Happy
-            </>
-          ),
+          value: { name: 'Happy' },
+          text: 'Happy',
         },
         {
-          value: 'Very happy',
-          text: (
-            <>
-              <EmojiEmotionsOutlinedIcon fontSize="large" />
-              Very happy
-            </>
-          ),
+          value: { name: 'Very happy' },
+          text: 'Very happy',
         },
         {
-          value: 'Very satisfied',
-          text: (
-            <>
-              <SentimentVerySatisfiedOutlinedIcon fontSize="large" />
-              Very satisfied
-            </>
-          ),
+          value: { name: 'Very satisfied' },
+          text: 'Very satisfied',
         },
       ],
     },
@@ -118,6 +90,7 @@ export default ({ fields, onChangeField, onSubmit }) => {
 
   return (
     <>
+      {console.log(userData)}
       <Form
         onChangeField={onChangeField}
         onSubmit={onSubmit}

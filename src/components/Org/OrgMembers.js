@@ -30,7 +30,7 @@ export default ({ memberList, creator }) => {
     <Container maxWidth={false} className={classes.memberCard}>
       Org creator:{' '}
       <UserIcon
-        status="onCall"
+        status={creator.status.status}
         image={creator.image}
         tooltip={creator.first_name + ' ' + creator.last_name}
       />
@@ -40,7 +40,7 @@ export default ({ memberList, creator }) => {
           <Grid key={`${member.id}-${member.first_name}`} item>
             {/* {console.log(member)} */}
             <UserIcon
-              status="onCall"
+              status={member.status.status}
               image={member.image}
               tooltip={member.first_name + ' ' + member.last_name}
             />

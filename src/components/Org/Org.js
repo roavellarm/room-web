@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { Layout, HeroSection } from '../templates'
 // import SocketIOClient from 'socket.io-client'
 import { RoomsGrid, Chat, LinksBar, WithoutRoom, OrgMembers } from '.'
@@ -109,7 +109,9 @@ export default withRouter(
           />
         ) : (
           <>
-            <HeroSection title={name} />
+            <Link to={`/dashboard`} style={{ textDecoration: 'none' }}>
+              <HeroSection title={name} subtitle={'Back to Dashboard'} />
+            </Link>
             {list && list.length ? (
               <RoomsGrid
                 onEnterInRoom={onEnterInRoom}
